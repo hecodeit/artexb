@@ -66,10 +66,10 @@
 
 
   <!-- 关注 begin-->
-  <data name="qr_data_cn" roundedge="6" mobilesize="7px 7px 7px 7px" desktopsize="7px 7px 7px 7px" popurl="./">
+  <data name="qr_data_cn" roundedge="6" mobilesize="7px 7px 7px 7px" desktopsize="7px 7px 7px 7px" popurl="qr.jpg">
     <![CDATA[
 		<div>
-      <img style="-webkit-touch-callout: none;border-radius: 4px;display: block;margin-left: auto;margin-right: auto;" src="%POPURL%/qr.jpg" height="116" width="115">
+      <img style="-webkit-touch-callout: none;border-radius: 4px;display: block;margin-left: auto;margin-right: auto;" src="%POPURL%" height="116" width="115">
       <div style="padding-top:4px;text-align:center;font-size:9px;">官方微信公众号</div>
 		</div>
 	]]>
@@ -77,7 +77,7 @@
   <data name="qr_data_en" roundedge="6" mobilesize="7px 7px 7px 7px" desktopsize="7px 7px 7px 7px" popurl="qr.jpg">
     <![CDATA[
 		<div>
-      <img style="-webkit-touch-callout: none;border-radius: 4px;display: block;margin-left: auto;margin-right: auto;" src="%POPURL%/qr.jpg" height="116" width="115">
+      <img style="-webkit-touch-callout: none;border-radius: 4px;display: block;margin-left: auto;margin-right: auto;" src="%POPURL%" height="116" width="115">
       <div style="padding-top:4px;text-align:center;font-size:9px;">WeChat Official Account</div>
 		</div>
 	]]>
@@ -188,6 +188,7 @@
             onloaded="update_views();"
             align="righttop"
             post_id="14"
+            api="http://hello.artexb.com"
             />
     <layer name="praise_btn" style="skin_custom_white|skin_glow" keep="true" visible="true" y="16" x="14" scale="0.5" align="righttop" vr="false" crop="0|448|64|64" onclick="plugin[views_and_likes].click_likes();">
       <layer name="count_btn_number" url="textfield.swf" align="right" y="-8" x="30" edge="right" css="text-align:right; color:#FFFFFF; font-family:Arial; font-size:11px;letter-spacing:0.5px;" vcenter="true" html="" backgroundalpha="0"/>

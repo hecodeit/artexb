@@ -26,9 +26,9 @@ function krpanoplugin()
     var krpano = null;  // the krpano and plugin interface objects
     var plugin = null;
 
-    var VIEWS_COUNT_URL = 'http://hello.artexb.com/wp-json/simple_views_counter/set?id=';
-    var LIKES_COUNT_URL = 'http://hello.artexb.com/wp-json/simple_likes_button/get?id=';
-    var LIKES_COUNT_POST_URL = 'http://hello.artexb.com/wp-json/simple_likes_button/set?id=';
+    var VIEWS_COUNT_URL;
+    var LIKES_COUNT_URL;
+    var LIKES_COUNT_POST_URL;
 
     local.registerplugin = function(krpanointerface, pluginpath, pluginobject)
     {
@@ -38,6 +38,9 @@ function krpanoplugin()
 
         // first - say hello
         krpano.trace(1, "hello from plugin[" + plugin.name + "]");
+        VIEWS_COUNT_URL = plugin.api + '/wp-json/simple_views_counter/set?id=';
+        LIKES_COUNT_URL = plugin.api + '/wp-json/simple_likes_button/get?id=';
+        LIKES_COUNT_POST_URL = plugin.api + '/wp-json/simple_likes_button/set?id=';
 
         // add plugin attributes
         plugin.registerattribute("post_id",'');
