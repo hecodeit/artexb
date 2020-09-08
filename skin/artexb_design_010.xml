@@ -187,7 +187,7 @@
             keep="true"
             onloaded="update_views();"
             align="righttop"
-            post_id="47"
+            post_id="14"
             />
     <layer name="praise_btn" style="skin_custom_white|skin_glow" keep="true" visible="true" y="16" x="14" scale="0.5" align="righttop" vr="false" crop="0|448|64|64" onclick="plugin[views_and_likes].click_likes();">
       <layer name="count_btn_number" url="textfield.swf" align="right" y="-8" x="30" edge="right" css="text-align:right; color:#FFFFFF; font-family:Arial; font-size:11px;letter-spacing:0.5px;" vcenter="true" html="" backgroundalpha="0"/>

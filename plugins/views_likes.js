@@ -26,9 +26,9 @@ function krpanoplugin()
     var krpano = null;  // the krpano and plugin interface objects
     var plugin = null;
 
-    var VIEWS_COUNT_URL = 'http://artexb.me/wp-json/simple_views_counter/set?id=';
-    var LIKES_COUNT_URL = 'http://artexb.me/wp-json/simple_likes_button/get?id=';
-    var LIKES_COUNT_POST_URL = 'http://artexb.me/wp-json/simple_likes_button/set?id=';
+    var VIEWS_COUNT_URL = 'http://hello.artexb.com/wp-json/simple_views_counter/set?id=';
+    var LIKES_COUNT_URL = 'http://hello.artexb.com/wp-json/simple_likes_button/get?id=';
+    var LIKES_COUNT_POST_URL = 'http://hello.artexb.com/wp-json/simple_likes_button/set?id=';
 
     local.registerplugin = function(krpanointerface, pluginpath, pluginobject)
     {
