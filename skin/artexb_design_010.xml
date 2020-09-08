@@ -29,7 +29,7 @@
          alpha="0"/>
 
   <!-- 简介 begin-->
-	<data name="popup_intro_en" mobilesize="64px 20px 0 20px" desktopsize="64px 20% 0 20%">
+  <data name="popup_intro_en" mobilesize="32px 10px 32px 10px" desktopsize="64px 20% 32px 20%">
 		<![CDATA[
 			<div>
 				<div style="font-size:21px;font-weight:bold;">Lorem Ipsum</div>
@@ -44,7 +44,7 @@
 		]]>
 	</data>
 
-	<data name="popup_intro_cn" mobilesize="64px 20px 0 20px" desktopsize="64px 20% 0 20%">
+	<data name="popup_intro_cn" mobilesize="32px 10px 32px 10px" desktopsize="64px 20% 32px 20%">
 		<![CDATA[
 			<div>
 				<div style="font-size:21px;font-weight:bold;">幸村西羊身尺朱苗</div>
