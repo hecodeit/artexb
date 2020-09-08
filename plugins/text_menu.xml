@@ -1,0 +1,155 @@
+<krpano>
+
+	<include url="%VIEWER%/plugins/combobox.xml" />
+
+	<action name="reload_textmenu">
+		removeComboboxLayer(textmenu);
+		addComboboxLayer(textmenu, rounded);
+		set(layer[textmenu].onloaded, delayedcall(0.1, add_arrow('my_css_id');));
+		hide_textmenu();
+		set(global.layer[textmenu_container].visible, false);
+
+		set(layer[textmenu].parent, 'textmenu_container');
+		set(layer[textmenu].align, 'rightbottom');
+		set(layer[textmenu].x, '-20');
+		set(layer[textmenu].y, '64');
+
+		for(set(i,0), i LT scene.count, inc(i),
+			layer[textmenu].additem(calc(scene[get(i)].title), calc('skin_loadscene('+i+',get(skin_settings.loadscene_blend))') );
+		);
+	</action>
+
+	<!-- close the current open list -->
+	<action name="combobox_closelist" scope="localonly">
+		if(global.openedcombobox !== null,
+			copy(cb, global.openedcombobox);
+			delete(global.openedcombobox);
+
+			<!-- clear the global onmousedown event -->
+			set(global.events[combobox_xml_plugin_events].onmousedown, null);
+
+			<!-- disable the dragging -->
+			set(cb.scrollarea.enabled, false);
+
+			<!-- closing animations -->
+			calc(offset, cb.selecteditemindex*(cb.autosize_max_h + cb.margin));
+			if(cb.ybackup !== null, tween(cb.y, get(cb.ybackup), get(cb.open_close_speed)));
+			global.layer[get(cb.name)].scrollarea.stopscrolling();
+			tween(global.layer[get(cb.name)].height, calc(2*cb.margin + cb.autosize_max_h), get(cb.open_close_speed));
+			tween(global.layer[get(cb.name)].scrollarea.y, calc(-offset), get(cb.open_close_speed), default, global.layer[get(cb.name)].scrollarea.update(); );
+			tween(global.layer[get(cb.name)].marker.y, calc(cb.margin + offset + cb.autosize_max_h/2), get(cb.open_close_speed));
+			delayedcall(0.25, set(global.layer[textmenu_container].visible, false););
+			<!-- special html5/flash case: rotate marker or change symbol -->
+			if(global.device.html5,
+				tween(global.layer[get(cb.name)].marker.rotate, 0, get(cb.open_close_speed));
+			  ,
+				set(global.layer[get(cb.name)].marker.html, '▼');
+			);
+		);
+	</action>
+
+	<!-- align the image and set the combobox size -->
+	<action name="combobox_align_items" scope="localonly" args="cbname">
+		copy(cb, global.layer[get(cbname)]);
+		if(cb.marker.havemarkersize == false OR cb.scrollarea.loaded == false,
+			<!-- wait until everything is ready -->
+			delayedcall(calc(cb.name + '_waitformarkersize'), 0.01, combobox_align_items(get(cbname)) );
+		  ,
+			<!-- set the item positions and the combobox size -->
+			if(global.openedcombobox === cb, combobox_closelist() );
+			copy(sa, cb.scrollarea);
+			calc(itemwidth, cb.margin GT 0 ? -2 * cb.margin : '100%');
+			copy(mk_w, cb.marker.width);
+			copy(item_cnt, cb.autosize_cnt);
+
+			for(def(item_i, integer, 0), item_i LT item_cnt, inc(item_i),
+				copy(li, global.layer[get(cb.item[get(item_i)].itemlayername)]);
+				set(li.x, get(cb.margin));
+				copy(li.width, itemwidth);
+				copy(li.height, cb.autosize_max_h);
+				calc(li.y, cb.margin + item_i * (cb.autosize_max_h + cb.margin));
+			);
+
+			if(cb.width == null OR cb.width == cb.lastautosizedwidth,
+				<!-- no combobox width (or an autosized width) set - set the largest item width -->
+				calc(cb.width, cb.margin + cb.autosize_max_w + 2 + mk_w + cb.margin);
+				copy(cb.lastautosizedwidth, cb.width);
+			);
+
+			calc(cb.height, 2*cb.margin + cb.autosize_max_h);
+			calc(sa.height, cb.margin + item_cnt*(cb.margin+cb.autosize_max_h));
+			calc(sa.y, -(cb.selecteditemindex * (cb.autosize_max_h + cb.margin)));
+			calc(cb.marker.x, cb.margin + mk_w/2);
+			tween(global.layer[get(cb.name)].marker.y, calc(cb.margin + cb.selecteditemindex*(cb.autosize_max_h + cb.margin) + cb.autosize_max_h/2), 0.1);
+
+			<!-- when all is done, show the combobox -->
+			delayedcall(0.1, set(global.layer[get(cb.name)].visible,true); );
+		);
+	</action>
+
+	<action name="add_arrow" type="Javascript"><![CDATA[
+		console.log(">>"+caller);
+
+    // arrow shadow
+    var arrow_shadow = document.createElement("div");
+		arrow_shadow.style.position = "absolute";
+		arrow_shadow.style.bottom = "54px";
+    arrow_shadow.style.right = "-10px";
+		arrow_shadow.style.zIndex = 3000;
+		arrow_shadow.style.transform = "translate3d(0, 0, 0)";
+    arrow_shadow.style.borderWidth = "12px 6px 0px 6px";
+    arrow_shadow.style.borderStyle = "solid";
+    arrow_shadow.style.borderColor = "rgba(0,0,0,0.1) transparent";
+
+    // arrow
+    var arrow = document.createElement("div");
+    arrow.style.position = "absolute";
+    arrow.style.bottom = "54px";
+    arrow.style.right = "-10px";
+		arrow.style.zIndex = 3002;
+		arrow.style.transform = "translateZ(1000000000001px)";
+    arrow.style.align = "center";
+    arrow.style.borderWidth = "10px 5px 0px 5px";
+    arrow.style.borderStyle = "solid";
+    arrow.style.borderColor = "rgba(195,13,35,0.9) transparent";
+
+
+		// caller.sprite.style.overflow = "visible";
+
+		// add the div to the layer element:
+    caller.sprite.parentElement.appendChild(arrow_shadow);
+
+		caller.sprite.parentElement.insertBefore(arrow, caller.sprite.parentElement.children[0]);
+    //caller.sprite.parentElement.appendChild(arrow);
+	]]></action>
+
+  <!-- some custom example designs -->
+  <combobox_design name="rounded" margin="5" open_close_speed="0.25">
+		<style name="combobox_container_style"
+			bgcolor="0xC30D23"
+			bgalpha="0.9"
+			bgborder="0"
+			bgroundedge="6"
+			bgshadow="2 4 20 0x000000 0.5"
+			/>
+		<style name="combobox_marker_style"
+			css="color:#999999;"
+			bg="false"
+			visible="false"
+			txtshadow=""
+      html=">"
+			/>
+		<style name="combobox_item_style"
+			css="color:#FFFFFF;"
+			padding="6 8"
+			bg="false"
+			bgcolor="0xffffff"
+			bgalpha="1.0"
+			bgroundedge="3"
+			txtshadow=""
+			onoveritem="set(css, 'color:#FDB626;');"
+			onoutitem="set(css, 'color:#FFFFFF;');"
+			/>
+    </combobox_design>
+
+</krpano>

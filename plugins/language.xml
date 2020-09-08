@@ -1,0 +1,115 @@
+<krpano>
+  <action name="set_hotspot_title_language">
+    for(set(i,0), i LT hotspot.count, inc(i),
+     if(layer["lagnuage_text"].html === 'EN',
+       set(hotspot[get(i)].html,get(hotspot[get(i)].html_cn)),
+       set(hotspot[get(i)].html,get(hotspot[get(i)].html_en))
+      );
+     );
+  </action>
+  <action name="scene_title_en">
+   for(set(i,0), i LT scene.count, inc(i),
+   set(scene[get(i)].title, get(scene[get(i)].title_en));
+  );
+  </action>
+
+  <action name="scene_title_cn">
+   for(set(i,0), i LT scene.count, inc(i),
+   set(scene[get(i)].title, get(scene[get(i)].title_cn));
+  );
+  </action>
+
+  <action name="list_title_en">
+    showlog();
+    for(set(i,0), i LT scene.count, inc(i),
+      calc(itemlayername, 'comboboxitem_textmenu_autoname' + '_' + get(i));
+      copy(li, layer[get(itemlayername)]);
+      set(li.html, get(scene[get(i)].title_en));
+      combobox_align_items();
+      trace(get(li).html);
+    );
+  </action>
+
+  <action name="list_title_cn">
+   for(set(i,0), i LT scene.count, inc(i),
+     calc(itemlayername, 'comboboxitem_textmenu_autoname' + '_' + get(i));
+     copy(li, layer[get(itemlayername)]);
+     set(li.html, get(scene[get(i)].title_cn));
+     combobox_align_items();
+   );
+  </action>
+
+  <action name="toggleLanguage">
+    <!-- graphictext plugin -->
+    <!-- remove_mp_graphictext(); -->
+
+    <!-- popup plugin -->
+    popup_close();
+
+    <!-- language button -->
+    switch(layer["lagnuage_text"].html, '中 文', 'EN');
+
+    <!-- UI -->
+    switch(layer["skin_btn_thumbs_text"].html, '场景选择', 'SCENES');
+    switch(layer["skin_btn_qr_text"].html, '关注我们', 'QR');
+    switch(layer["skin_btn_map_text"].html, '导航地图', 'MAP');
+    switch(layer["skin_btn_phone_text"].html, '联系我们', 'CONTACT');
+    switch(layer["textmenu_text"].html, '场景列表', 'List');
+
+    <!-- components interface -->
+    if(layer["lagnuage_text"].html === 'EN',
+      setLanguage('CN'),
+      setLanguage('ENG')
+    );
+
+  </action>
+
+  <action name="setLanguage">
+    set(lang, %1);
+    %1();
+    skin_addthumbs();
+  </action>
+
+  <action name="ENG">
+    trace('ENG');
+    <!-- UI -->
+    txtadd(layer[count_btn_number].html,get(plugin[views_and_likes].views_count), " Views");
+    txtadd(layer[praise_btn_number].html,get(plugin[views_and_likes].likes_count), " Likes");
+
+    set(layer[lagnuage_text_en].alpha, 1);
+    set(layer[lagnuage_text_cn].alpha, 0.5);
+
+    if(layer["sound_text"].html === '播 放',
+    set(layer["sound_text"].html, 'Play'),
+    set(layer["sound_text"].html, 'Stop'));
+
+    <!-- scene title -->
+    scene_title_en();
+    <!-- reload_textmenu(); -->
+    set_hotspot_title_language();
+
+  </action>
+
+  <action name="CN">
+    trace('CN');
+    <!-- UI -->
+    txtadd(layer[count_btn_number].html,get(plugin[views_and_likes].views_count), " 浏 览");
+    txtadd(layer[praise_btn_number].html,get(plugin[views_and_likes].likes_count), " 喜 欢");
+
+    set(layer[lagnuage_text_en].alpha, 0.5);
+    set(layer[lagnuage_text_cn].alpha, 1);
+
+    if(layer["sound_text"].html === 'Play',
+    set(layer["sound_text"].html, '播 放'),
+    set(layer["sound_text"].html, '静 音'));
+
+    <!-- scene title -->
+    scene_title_cn();
+    <!-- reload_textmenu(); -->
+    set_hotspot_title_language();
+
+  </action>
+
+
+
+</krpano>

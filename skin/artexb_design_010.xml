@@ -1,0 +1,231 @@
+<krpano>
+  <!-- Version 0.01 Design -->
+  <skin_settings title="false"
+                 thumbs_width="100"
+                 thumbs_text="true"
+                 deeplinking="true"
+                 design_bgcolor="0x000000"
+                 design_bgalpha="0.9"
+                 design_bgroundedge="6"
+                 design_skin_images="%VIEWER%/artexb/skin/artexb_skin_white.svg"
+                 design_skin_artexb_images="%VIEWER%/artexb/skin/artexb_skin_custom.svg"
+                 design_skin_artexb_images_white="%VIEWER%/artexb/skin/artexb_skin_custom_white.svg"
+                 maps="false" gyro="false" webvr="false" loadingtext=""
+                 design_thumbborder_bgroundedge="6"
+                 controlbar_offset="30"
+                 design_thumbborder_bgborder="2 0xFFFFFF 1.0"
+                 design_inner_shadow="0 0 20 0 0x000000 0.8 inset"
+                 thumbs_scrollindicator="true"
+                 controlbar_height="46"
+                 design_thumbborder_padding="-2"
+                 />
+
+  <!-- skin_base - the base skin image -->
+  <style name="skin_base"   url="calc:skin_settings.design_skin_images" />
+  <style name="skin_custom" url="calc:skin_settings.design_skin_artexb_images" />
+  <style name="skin_custom_white" url="calc:skin_settings.design_skin_artexb_images_white" />
+
+  <style name="poly_hotspot_style"
+         alpha="0"/>
+
+  <!-- 简介 begin-->
+	<data name="popup_intro_en" mobilesize="64px 20px 0 20px" desktopsize="64px 20% 0 20%">
+		<![CDATA[
+			<div>
+				<div style="font-size:21px;font-weight:bold;">Lorem Ipsum</div>
+				<hr style="border:0;border-top:1px solid white;">
+				<ul>
+					<li>Vivamus sodales risus sit amet risus convallis euismod.</li>
+					<li>Donec risus felis, sagittis congue dictum quis, ornare nec massa. Integer dignissim, eros in viverra varius, augue quam lobortis elit, id pellentesque lacus eros vitae ex.</li>
+				</ul>
+				<p>Ut tincidunt hendrerit interdum. Nunc eros magna, convallis a molestie eget, elementum sed quam. Maecenas et maximus libero. Morbi placerat pellentesque lacus, in malesuada odio lobortis sed. Donec elementum mi at ipsum commodo, nec consequat massa auctor. Aliquam rhoncus turpis et nibh congue semper. Vestibulum vitae auctor sapien, vel tristique leo. Integer venenatis, nisl a mollis congue, lorem neque tempus nisi, quis commodo dui turpis aliquam nunc. In pulvinar blandit velit, non interdum ligula blandit accumsan. Fusce quis fermentum justo. Aenean massa metus, accumsan at ipsum in, cursus pulvinar massa. Praesent accumsan ante odio, vel volutpat eros vehicula sit amet. Maecenas vehicula libero eget nisi pharetra fermentum.</p>
+				<p>Nullam eu viverra nisi, eu lobortis turpis. Suspendisse varius ultricies orci, id aliquam mauris aliquam id. Aenean non diam sed mi venenatis scelerisque. Donec aliquam justo nunc, non gravida eros blandit at. Sed iaculis venenatis nulla, ut accumsan urna fringilla vitae. Suspendisse eu nisi cursus, fermentum nulla sed, rhoncus est. Praesent venenatis, lorem quis facilisis accumsan, orci nibh lacinia eros, eu pulvinar sem sem a turpis. Nam malesuada sollicitudin justo, facilisis lobortis orci sagittis in. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam sit amet nunc ac eros porttitor condimentum. Vestibulum libero nisi, cursus suscipit sodales sed, accumsan nec sapien.</p>
+			</div>
+		]]>
+	</data>
+
+	<data name="popup_intro_cn" mobilesize="64px 20px 0 20px" desktopsize="64px 20% 0 20%">
+		<![CDATA[
+			<div>
+				<div style="font-size:21px;font-weight:bold;">幸村西羊身尺朱苗</div>
+				<hr style="border:0;border-top:1px solid white;">
+				<ul>
+					<li>像人工白植白。太吹色村呀巾四許春們良</li>
+					<li>禾發到羽道，呢斗欠院屋頁，山步北：冰校回早鴨，再波尤那往哪壯抓福固右科地買兌半男壯福立乞</li>
+				</ul>
+				<p>至枝口親年借忍喝寫知父師北孝家卜，每登動空杯立法奶定快拉晚不才雞中用。幼禾虎八、但封目色真神巾頁跟流右好呀愛海帶幸路、告海封裏苦首飯姊飽喜包三北占坐元坡！游坐蛋？下東話元色院。</p>
+				<p>詞現功字幫已羊很首夏。爪還可假門我支飽晚跟干「送兆」金耍能京胡時耳世校苦浪首公八邊讀流歡光；掃亮抓雄北第黑包具辛三羊。登具幫北從而亭京一半！羽果卜做公這友禾亮大明。尾跑游它正路尤苦戊課念個，少尾玩休進士千英室員怎神羽畫或結麼躲南己、或午清從躲豆上記英哪行國。</p>
+			</div>
+		]]>
+	</data>
+
+	<action name="popup_intro">
+    open_html_box('popup_intro_cn', 'popup_intro_en');
+  </action>
+  <!-- 简介 end-->
+
+
+  <!-- 关注 begin-->
+  <data name="qr_data_cn" roundedge="6" mobilesize="7px 7px 7px 7px" desktopsize="7px 7px 7px 7px" popurl="./">
+    <![CDATA[
+		<div>
+      <img style="-webkit-touch-callout: none;border-radius: 4px;display: block;margin-left: auto;margin-right: auto;" src="%POPURL%/qr.jpg" height="116" width="115">
+      <div style="padding-top:4px;text-align:center;font-size:9px;">官方微信公众号</div>
+		</div>
+	]]>
+  </data>
+  <data name="qr_data_en" roundedge="6" mobilesize="7px 7px 7px 7px" desktopsize="7px 7px 7px 7px" popurl="qr.jpg">
+    <![CDATA[
+		<div>
+      <img style="-webkit-touch-callout: none;border-radius: 4px;display: block;margin-left: auto;margin-right: auto;" src="%POPURL%/qr.jpg" height="116" width="115">
+      <div style="padding-top:4px;text-align:center;font-size:9px;">WeChat Official Account</div>
+		</div>
+	]]>
+  </data>
+  <action name="qr_button_click">
+    if(layer["lagnuage_text"].html === 'EN',
+    popup('html', get(data[qr_data_cn].content), 50, 90, 130, 146, 0x000000, '0,0,0,0.9', false, "leftbottom", true, true, get(data[qr_data_cn].roundedge), '7px 7px 7px 7px', '7px 7px 7px 7px', get(data[qr_data_cn].popurl)),
+    popup('html', get(data[qr_data_en].content), 50, 90, 130, 146, 0x000000, '0,0,0,0.9', false, "leftbottom", true, true, get(data[qr_data_en].roundedge), '7px 7px 7px 7px', '7px 7px 7px 7px', get(data[qr_data_en].popurl)) );
+  </action>
+  <!-- 关注 end-->
+
+  <!-- 浏览｜喜欢 begin -->
+  <!--当统计可用-->
+  <action name="update_views_likes">
+    trace('update_views_likes');
+    <!--显示效果-->
+    tween(layer[count_btn].alpha,1); tween(layer[praise_btn].alpha,1); set(layer[count_btn].enabled,false); set(layer[praise_btn].enabled,true);
+    <!--显示数据-->
+    txtadd(layer[count_btn_number].html,get(plugin[views_and_likes].views_count), " 浏 览"); txtadd(layer[praise_btn_number].html,get(plugin[views_and_likes].likes_count), " 喜 欢");
+    <!--如果可点赞点赞按钮可接收事件，且为半透明 否则不可接收事件 ，且透明度为1-->
+    if(plugin[views_and_likes].already_like == true, set(layer[praise_btn].crop,64|448|64|64); set(layer[praise_btn].enabled,false); , set(layer[praise_btn].crop,0|448|64|64); set(layer[praise_btn].enabled,true); );
+  </action>
+
+  <!--当访问统计不可用-->
+  <action name="onunavailable">
+    tween(layer[count_btn].alpha,0.5); tween(layer[praise_btn].alpha,0.5); set(layer[count_btn].enabled,false); set(layer[praise_btn].enabled,false);
+  </action>
+  <!-- 浏览｜喜欢 end -->
+
+  <!-- override actions -->
+  <action name="skin_arrange_buttons" scope="local">
+    <!-- calc(show_selbuttons, scene.count GT 1); -->
+    set(show_selbuttons, 0); calc(show_thumbutton, skin_settings.thumbs == true); calc(show_mapbutton, skin_settings.maps == true); calc(show_gyrobutton, plugin[skin_gyro].isavailable == true AND (view.vlookatrange == 180 OR global.lpinfo.scene ===
+    xml.scene)); calc(show_vrbutton, webvr.isavailable == true);
+
+    <!-- calc(show_fsbutton, device.fullscreensupport == true); -->
+    set(show_fsbutton, 0); set(lpos,6); set(cpos,0); if(show_gyrobutton, dec(cpos,20)); if(show_vrbutton OR plugin[webvr].mobilevr_fake_support == true, dec(cpos,24)); set(rpos,6);
+
+    <!-- calc(show_dirbuttons, !device.mobile AND ((area.pixelwidth + 2*cpos) GT 520) ); -->
+    set(show_dirbuttons, 0); copy(layer[skin_btn_navi].visible, show_dirbuttons); copy(layer[skin_btn_prev].visible, show_selbuttons); copy(layer[skin_btn_next].visible, show_selbuttons); if(show_selbuttons, inc(lpos,44); inc(rpos,44); );
+    copy(layer[skin_btn_thumbs].visible, show_thumbutton); copy(layer[skin_btn_thumbs].x, lpos); if(show_thumbutton, inc(lpos,40)); copy(layer[skin_btn_map].visible, show_mapbutton); copy(layer[skin_btn_map].x, lpos); if(show_mapbutton, inc(lpos,40));
+    if(show_dirbuttons, copy(layer[skin_btn_navi].x, cpos); inc(cpos,140); set(layer[skin_btn_gyro].align, center); copy(layer[skin_btn_gyro].visible, show_gyrobutton); copy(layer[skin_btn_gyro].x, cpos); if(show_gyrobutton, inc(cpos,48));
+    set(layer[skin_btn_vr].align, center); copy(layer[skin_btn_vr].visible, show_vrbutton); copy(layer[skin_btn_vr].x, cpos); if(show_vrbutton, inc(cpos,80)); , set(layer[skin_btn_gyro].align, left); copy(layer[skin_btn_gyro].visible, show_gyrobutton);
+    copy(layer[skin_btn_gyro].x, lpos); if(show_gyrobutton, inc(lpos,40)); set(layer[skin_btn_vr].align, left); copy(layer[skin_btn_vr].visible, show_vrbutton); copy(layer[skin_btn_vr].x, lpos); if(show_vrbutton, inc(lpos,80)); );
+    copy(layer[skin_btn_hide].x, rpos); inc(rpos,40); copy(layer[skin_btn_fs].visible, show_fsbutton); copy(layer[skin_btn_fs].x, rpos); if(show_fsbutton, inc(rpos,40));
+  </action>
+
+  <action name="skin_hideskin" scope="local" args="hidetimemode">
+		calc(hidetime, hidetimemode == 'instant' ? 0.0 : 0.5);
+
+		callwith(layer[skin_scroll_window],   skin_calc_opened_closed() );
+		callwith(layer[skin_splitter_bottom], skin_calc_opened_closed() );
+		callwith(layer[skin_control_bar],     skin_calc_opened_closed() );
+
+		if(layer[skin_map].state    != 'closed', skin_showmap(false);    if(hidetime GT 0, wait(0.40)); );
+		if(layer[skin_thumbs].state != 'closed', skin_showthumbs(false); if(hidetime GT 0, wait(0.25)); );
+
+		tween(layer[skin_scroll_window].y,   get(layer[skin_scroll_window  ].y_closed), get(hidetime));
+		tween(layer[skin_splitter_bottom].y, get(layer[skin_splitter_bottom].y_closed), get(hidetime));
+		tween(layer[skin_control_bar].y,     get(layer[skin_control_bar    ].y_closed), get(hidetime));
+
+		set(layer[skin_btn_prev_fs].enabled, true);
+		set(layer[skin_btn_next_fs].enabled, true);
+		tween(layer[skin_btn_prev_fs].x|layer[skin_btn_prev_fs].alpha, 0|0.6, get(hidetime));
+		tween(layer[skin_btn_next_fs].x|layer[skin_btn_next_fs].alpha, 0|0.6, get(hidetime));
+
+		if(layer[skin_logo], tween(layer[skin_logo].alpha, 0.0, 0.5, default, set(layer[skin_logo].visible,false)); );
+    if(layer[praise_btn], tween(layer[praise_btn].alpha, 0.0, 0.5, default, set(layer[praise_btn].visible,false)); );
+    if(layer[lagnuage_button], tween(layer[lagnuage_button].alpha, 0.0, 0.5, default, set(layer[lagnuage_button].visible,false)); );
+
+		stopdelayedcall(skin_btn_show_alpha);
+		set(layer[skin_btn_show].visible, true);
+		delayedcall(skin_btn_show_alpha, get(hidetime), tween(layer[skin_btn_show].alpha, 0.6, 0.25); );
+	</action>
+
+
+	<action name="skin_showskin">
+		tween(layer[skin_scroll_window  ].y, get(layer[skin_scroll_window  ].y_opened));
+		tween(layer[skin_splitter_bottom].y, get(layer[skin_splitter_bottom].y_opened));
+		tween(layer[skin_control_bar    ].y, get(layer[skin_control_bar    ].y_opened));
+
+		set(layer[skin_btn_prev_fs].enabled, false);
+		set(layer[skin_btn_next_fs].enabled, false);
+		tween(layer[skin_btn_prev_fs].x|layer[skin_btn_prev_fs].alpha, -50|0.0);
+		tween(layer[skin_btn_next_fs].x|layer[skin_btn_next_fs].alpha, -50|0.0);
+
+		if(layer[skin_logo], set(layer[skin_logo].visible,true); tween(layer[skin_logo].alpha, 1.0); );
+    if(layer[praise_btn], set(layer[praise_btn].visible,true); tween(layer[praise_btn].alpha, 1.0); );
+    if(layer[lagnuage_button], set(layer[lagnuage_button].visible,true); tween(layer[lagnuage_button].alpha, 1.0); );
+
+		stopdelayedcall(skin_btn_show_alpha);
+		set(layer[skin_btn_show].visible, false);
+		delayedcall(skin_btn_show_alpha, 0.25, tween(layer[skin_btn_show].alpha, 0.0, 0.0); );
+	</action>
+
+  <contextmenu fullscreen="false" versioninfo="false" />
+
+  <!-- background layer -->
+  <layer name="background" keep="true" type="container" align="center" width="100%" height="100%">
+
+    <!-- logo -->
+    <layer name="skin_logo" url="%VIEWER%/artexb/skin/logo.svg" width="200" height="prop" keep="true" enabled="true" align="lefttop" x="14" y="14" onclick="skin_loadscene(get(scene[0].name),get(skin_settings.loadscene_blend));"/>
+
+    <!-- views likes button -->
+    <plugin name="views_and_likes"
+            url="%VIEWER%/artexb/plugins/views_likes.js"
+            keep="true"
+            onloaded="update_views();"
+            align="righttop"
+            post_id="47"
+            />
+    <layer name="praise_btn" style="skin_custom_white|skin_glow" keep="true" visible="true" y="16" x="14" scale="0.5" align="righttop" vr="false" crop="0|448|64|64" onclick="plugin[views_and_likes].click_likes();">
+      <layer name="count_btn_number" url="textfield.swf" align="right" y="-8" x="30" edge="right" css="text-align:right; color:#FFFFFF; font-family:Arial; font-size:11px;letter-spacing:0.5px;" vcenter="true" html="" backgroundalpha="0"/>
+      <layer name="praise_btn_number" url="textfield.swf" align="right" y="7" x="30" edge="right" css="text-align:right; color:#FFFFFF; font-family:Arial; font-size:11px;letter-spacing:0.5px;" vcenter="true" html="" backgroundalpha="0"/>
+    </layer>
+    <!--赞-->
+
+    <!-- a button to lagnuage -->
+    <layer name="lagnuage_button" keep="true" type="container" align="righttop" x="32" y="56" alpha="1">
+      <!-- <layer name="lagnuage_icon" style="skin_custom_white|skin_glow" align="centertop" x="0" y="0" scale="0.5" crop="64|640|64|64"/> -->
+      <layer name="lagnuage_text_en" type="text" html="EN" align="center" x="4" y="26" css="color:#ffffff;font-size:14px;" bgalpha="0" alpha="0.5"/>
+      <layer name="lagnuage_text_devider" type="text" html="|" align="center" x="-11" y="26" css="color:#ffffff;font-size:14px;" bgalpha="0"/>
+      <layer name="lagnuage_text_cn" type="text" html="中" align="center" x="-23" y="26" css="color:#ffffff;font-size:14px;" bgalpha="0"/>
+      <layer name="lagnuage_text" visible="false" type="text" html="EN" align="center" x="0" y="26" css="color:#ffffff;font-size:11px;" bgalpha="0" />
+      <layer name="lagnuage_button_action" type="text" align="righttop" x="-16" y="0" width="50" height="50" alpha="0"/>
+    </layer>
+  </layer>
+
+  <!-- skin layout -->
+  <layer name="skin_layer">
+    <layer name="skin_control_bar">
+      <layer name="skin_control_bar_buttons">
+        <layer name="skin_btn_thumbs" ondown="skin_showmap(false); popup_close();skin_showthumbs();" />
+        <layer name="skin_btn_intro" style="skin_custom_white|skin_glow" crop="0|384|64|64" align="left" x="50" y="0" scale="0.5" ondown="skin_showthumbs(false);popup_intro();"/>
+        <layer name="skin_btn_qr" style="skin_custom_white|skin_glow" crop="0|320|64|64" align="left" x="90" y="0" scale="0.5" ondown="skin_showthumbs(false);qr_button_click();"/>
+
+        <layer name="skin_btn_show" y="calc:skin_settings.controlbar_height - skin_settings.controlbar_offset_closed + 30" onhover="" onout="">
+          <layer name="skin_btn_show_icon" style="skin_base" crop="64|448|64|64" scale="0.5" align="bottom" y="2" enabled="false" />
+        </layer>
+      </layer>
+    </layer>
+
+    <layer name="skin_loadingtext" type="image" url="%VIEWER%/artexb/skin/159.svg" width="64" height="64" scale="0.5" align="center" x="5" y="-5" html="get:skin_settings.loadingtext" visible="false" bg="false" enabled="false" css="calc:skin_settings.design_text_css + ' text-align:center; font-style:italic; font-size:22px;'" textshadow="get:skin_settings.design_text_shadow" />
+  </layer>
+
+  <layer name="skin_btn_prev_fs" onhover="" onout="" />
+	<layer name="skin_btn_next_fs" onhover="" onout="" />
+
+
+
+</krpano>
