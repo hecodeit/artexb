@@ -179,7 +179,7 @@
   <layer name="background" keep="true" type="container" align="center" width="100%" height="100%">
 
     <!-- logo -->
-    <layer name="skin_logo" url="%VIEWER%/artexb/skin/logo.svg" width="200" height="prop" keep="true" enabled="true" align="lefttop" x="14" y="14" onclick="skin_loadscene(get(scene[0].name),get(skin_settings.loadscene_blend));"/>
+    <layer name="skin_logo" url="%VIEWER%/artexb/skin/logo_white.svg" scale="0.3" scale.mobile="0.17" width="240" height="240" keep="true" enabled="true" align="lefttop" x="14" y="12" onclick="skin_loadscene(get(scene[0].name),get(skin_settings.loadscene_blend));"/>
 
     <!-- views likes button -->
     <plugin name="views_and_likes"
