@@ -188,7 +188,7 @@
             onloaded="update_views();"
             align="righttop"
             post_id="14"
-            api="http://hello.artexb.com"
+            api="https://hello.artexb.com"
             />
     <layer name="praise_btn" style="skin_custom_white|skin_glow" keep="true" visible="true" y="16" x="14" scale="0.5" align="righttop" vr="false" crop="0|448|64|64" onclick="plugin[views_and_likes].click_likes();">
       <layer name="count_btn_number" url="textfield.swf" align="right" y="-8" x="30" edge="right" css="text-align:right; color:#FFFFFF; font-family:Arial; font-size:11px;letter-spacing:0.5px;" vcenter="true" html="" backgroundalpha="0"/>
@@ -221,7 +221,7 @@
       </layer>
     </layer>
 
-    <layer name="skin_loadingtext" type="image" url="%VIEWER%/artexb/skin/159.svg" width="64" height="64" scale="0.5" align="center" x="5" y="-5" html="get:skin_settings.loadingtext" visible="false" bg="false" enabled="false" css="calc:skin_settings.design_text_css + ' text-align:center; font-style:italic; font-size:22px;'" textshadow="get:skin_settings.design_text_shadow" />
+    <layer name="skin_loadingtext" zorder="100" type="image" url="%VIEWER%/artexb/skin/159.svg" width="64" height="64" scale="0.5" align="center" x="5" y="-5" html="get:skin_settings.loadingtext" visible="false" bg="false" enabled="false" css="calc:skin_settings.design_text_css + ' text-align:center; font-style:italic; font-size:22px;'" textshadow="get:skin_settings.design_text_shadow" />
   </layer>
 
   <layer name="skin_btn_prev_fs" onhover="" onout="" />
