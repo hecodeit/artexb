@@ -20,11 +20,27 @@
     popup('html', get(data[%2].content), 0, 0, '100%', '100%', 0x000000, '0,0,0,0.9', true, 'center', false, false, 0, get(data[%2].mobilesize), get(data[%2].desktopsize) ) );
   </action>
 
-
-
   <action name="open_gallery">
     popup(iframe, %1, 0, 0, '100%', '100%', 0x000000, '0,0,0,0.9', false, 'center', false, false, 0, '0 0 0 0', '0 0 0 0');
   </action>
+
+  <action name="open_introimage">
+    if(popup,
+      trace('popup'),
+      if(layer["lagnuage_text"].html === 'EN',
+        popup('image', %1, 0, 40, '200', '200', 0x000000, '0,0,0,0.9', true, 'topcenter', true, true, 0, '0 0 0 0', '0 0 0 0'),
+        popup('image', %2, 0, 40, '200', '200', 0x000000, '0,0,0,0.9', true, 'topcenter', true, true, 0, '0 0 0 0', '0 0 0 0')
+      );
+      set(global.events[popup].onresize,  );
+      set(global.events[popup].onmousewheel,  );
+      set(global.events[popup].onclick,  );
+      delayedcall(introimage, 6.0, popup_close());
+    )
+  </action>
+
+  <events name="introimage_events"
+          onremovepano="stopdelayedcall(introimage);"
+          />
 
   <!-- plugin popup
 
@@ -63,8 +79,10 @@
 
     <![CDATA[
 
-		if(popup,
-    popup_close_immediately(););
+    if(popup,
+      popup_close_immediately();
+      stopdelayedcall(introimage);
+    );
 
 
     addlayer('popup_bg', popup_bg);
@@ -166,6 +184,26 @@
     ,type == 'iframe',
       	calc(popup.datacontent, '<iframe style="position:absolute;width:100%;height:100%;top:0px;left:0px;" src="'+content+'" frameborder="0" allowfullscreen></iframe>');
       	calc(popup.onloaded, 'add_html_code(get(datacontent),'+scrollbars+','+addarrow+','+rgba+','+alignsetting+','+pop_size+');');
+    ,type == 'image',
+    trace('image');
+      set(popup_bg,
+        bgcolor=0x000000,
+		 		bgalpha=0,
+        bgcapture=false,
+		 	);
+		 	set(popup,
+		 		bgcolor=0xFFFFFF,
+		 		bgalpha=0,
+        bgshadow="",
+        bgcapture=false,
+		 	);
+			addlayer("popup_image", img);
+			set(img,
+				url=get(content),
+				align=center,
+				width=100%, height=100%,
+				parent=get(popup.name)
+			);
     );
 
     tween(global.layer[popup].alpha, 1.0, 0.2);
