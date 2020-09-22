@@ -84,8 +84,8 @@
   </data>
   <action name="qr_button_click">
     if(layer["lagnuage_text"].html === 'EN',
-    popup('html', get(data[qr_data_cn].content), 50, 90, 130, 146, 0x000000, '0,0,0,0.9', false, "leftbottom", true, true, get(data[qr_data_cn].roundedge), '7px 7px 7px 7px', '7px 7px 7px 7px', get(data[qr_data_cn].popurl)),
-    popup('html', get(data[qr_data_en].content), 50, 90, 130, 146, 0x000000, '0,0,0,0.9', false, "leftbottom", true, true, get(data[qr_data_en].roundedge), '7px 7px 7px 7px', '7px 7px 7px 7px', get(data[qr_data_en].popurl)) );
+    popup('html', get(data[qr_data_cn].content), 50, 90, 130, 146, 0x000000, '0,0,0,0.9', false, "leftbottom", true, true, false, get(data[qr_data_cn].roundedge), '7px 7px 7px 7px', '7px 7px 7px 7px', get(data[qr_data_cn].popurl)),
+    popup('html', get(data[qr_data_en].content), 50, 90, 130, 146, 0x000000, '0,0,0,0.9', false, "leftbottom", true, true, false, get(data[qr_data_en].roundedge), '7px 7px 7px 7px', '7px 7px 7px 7px', get(data[qr_data_en].popurl)) );
   </action>
   <!-- 关注 end-->
 
@@ -173,7 +173,18 @@
 		delayedcall(skin_btn_show_alpha, 0.25, tween(layer[skin_btn_show].alpha, 0.0, 0.0); );
 	</action>
 
-  <contextmenu fullscreen="false" versioninfo="false" />
+  <!-- context menu - http://krpano.com/docu/xml/#contextmenu -->
+	<contextmenu>
+		<item name="kr" caption="KRPANO"     />
+		<item name="fs" caption="FULLSCREEN" />
+
+		<item name="nv" caption="Normal View"        onclick="skin_view_normal();"        showif="view.vlookatrange == 180" separator="true"      />
+		<item name="pv" caption="Pannini View"       onclick="skin_view_pannini();"       showif="view.vlookatrange == 180" devices="flash|webgl" />
+		<item name="av" caption="Architectural View" onclick="skin_view_architectural();" showif="view.vlookatrange == 180"  />
+
+		<item name="logo"   caption="© 2020 ARTEXB.COM"  onclick="openurl('http://artexb.com')"   separator="true"     />
+
+	</contextmenu>
 
   <!-- background layer -->
   <layer name="background" keep="true" type="container" align="center" width="100%" height="100%">
@@ -211,7 +222,7 @@
   <layer name="skin_layer">
     <layer name="skin_control_bar">
       <layer name="skin_control_bar_buttons">
-        <layer name="skin_btn_thumbs" ondown="skin_showmap(false);skin_showthumbs();" />
+        <layer name="skin_btn_thumbs" ondown="skin_showmap(false); skin_showthumbs();" />
         <layer name="skin_btn_intro" style="skin_custom_white|skin_glow" crop="0|384|64|64" align="left" x="50" y="0" scale="0.5" ondown="skin_showthumbs(false);popup_intro();"/>
         <layer name="skin_btn_qr" style="skin_custom_white|skin_glow" crop="0|320|64|64" align="left" x="90" y="0" scale="0.5" ondown="skin_showthumbs(false);qr_button_click();"/>
 

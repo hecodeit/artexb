@@ -12,24 +12,13 @@
 	       onloaded="skin_hotspotstyle_setup();"
 	       />
 
- <!-- Textstyle STYLE4 -->
- 	<textstyle name="animationhotspot_text"
- 	           font="Arial" fontsize.no-mobile="10" fontsize.mobile="10" bold="true"
- 	           background="true" backgroundcolor="0x000000" backgroundalpha="0.4"
- 	           border="false" roundedge="70"
- 	           textcolor="0xFFFFFF"
- 	           padding="6 10"
- 	           textalign="center"
- 	           yoffset.no-touch="-5"
- 	           yoffset.touch="-40"
- 	           />
-
 	<style name="hotspot_text"
-				 handcursor="false"
+				 handcursor="true"
 				 type="text"
 		     css="font-family:Arial; font-weight:bold;font-size:9px; color:#FFFFFF;"
+				 bgborder="2 0xFFFFFF 0.9"
 				 backgroundcolor="0x000000"
-				 backgroundalpha="0.4"
+				 backgroundalpha="0"
 				 roundedge="10"
 				 padding="4 6"/>
   <!--

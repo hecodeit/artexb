@@ -10,26 +10,26 @@
     set(popY, calc(get(y)-stageheight/2+popH/2+30));
 
     if(layer["lagnuage_text"].html === 'EN',
-    popup('html', get(data[%3].content), -5, get(popY), 160, get(popH), 0x000000, '0,0,0,0.7', true, "center", true, true, 6, get(data[%3].mobilesize), get(data[%3].desktopsize) ),
-    popup('html', get(data[%4].content), -5, get(popY), 160, get(popH), 0x000000, '0,0,0,0.7', true, "center", true, true, 6, get(data[%4].mobilesize), get(data[%4].desktopsize) ) );
+    popup('html', get(data[%3].content), -5, get(popY), 160, get(popH), 0x000000, '0,0,0,0.7', true, "center", true, true, false, 6, get(data[%3].mobilesize), get(data[%3].desktopsize) ),
+    popup('html', get(data[%4].content), -5, get(popY), 160, get(popH), 0x000000, '0,0,0,0.7', true, "center", true, true, false 6, get(data[%4].mobilesize), get(data[%4].desktopsize) ) );
 	</action>
 
   <action name="open_html_box">
     if(layer["lagnuage_text"].html === 'EN',
-    popup('html', get(data[%1].content), 0, 0, '100%', '100%', 0x000000, '0,0,0,0.9', true, 'center', false, false, 0, get(data[%1].mobilesize), get(data[%1].desktopsize) ),
-    popup('html', get(data[%2].content), 0, 0, '100%', '100%', 0x000000, '0,0,0,0.9', true, 'center', false, false, 0, get(data[%2].mobilesize), get(data[%2].desktopsize) ) );
+    popup('html', get(data[%1].content), 0, 0, '100%', '100%', 0x000000, '0,0,0,0.9', true, 'center', false, false, true, 0, get(data[%1].mobilesize), get(data[%1].desktopsize) ),
+    popup('html', get(data[%2].content), 0, 0, '100%', '100%', 0x000000, '0,0,0,0.9', true, 'center', false, false, true, 0, get(data[%2].mobilesize), get(data[%2].desktopsize) ) );
   </action>
 
   <action name="open_gallery">
-    popup(iframe, %1, 0, 0, '100%', '100%', 0x000000, '0,0,0,0.9', false, 'center', false, false, 0, '0 0 0 0', '0 0 0 0');
+    popup(iframe, %1, 0, 0, '100%', '100%', 0x000000, '0,0,0,0.9', false, 'center', false, false, true, 0, '0 0 0 0', '0 0 0 0');
   </action>
 
   <action name="open_introimage">
     if(popup,
       trace('popup'),
       if(layer["lagnuage_text"].html === 'EN',
-        popup('image', %1, 0, 40, '200', '200', 0x000000, '0,0,0,0.9', true, 'topcenter', true, true, 0, '0 0 0 0', '0 0 0 0'),
-        popup('image', %2, 0, 40, '200', '200', 0x000000, '0,0,0,0.9', true, 'topcenter', true, true, 0, '0 0 0 0', '0 0 0 0')
+        popup('image', %1, 0, 40, '200', '200', 0x000000, '0,0,0,0.9', true, 'topcenter', true, true, false, 0, '0 0 0 0', '0 0 0 0'),
+        popup('image', %2, 0, 40, '200', '200', 0x000000, '0,0,0,0.9', true, 'topcenter', true, true, false, 0, '0 0 0 0', '0 0 0 0')
       );
       set(global.events[popup].onresize,  );
       set(global.events[popup].onmousewheel,  );
@@ -72,6 +72,7 @@
                 alignsetting,
                 addarrow,
                 setmaxwidth,
+                addCloseButton,
                 roundedge,
                 mobilesize,
                 desktopsize,
@@ -79,9 +80,9 @@
 
     <![CDATA[
 
-    if(popup,
-      popup_close_immediately();
-      stopdelayedcall(introimage);
+		if(popup,
+    popup_close_immediately();
+    stopdelayedcall(introimage);
     );
 
 
@@ -137,8 +138,7 @@
 
 
 		// optional: add a close button
-    if(setmaxwidth,
-      trace('hi'),
+    if(addCloseButton,
       addlayer('popup_close_x', closex);
       if(color === '0x000000',
         set(closex,
@@ -218,6 +218,7 @@
 	]]></action>
 
   <action name="popup_close">
+    trace('close!!!');
 		set(global.plugin[popup_bg].enabled, false);
 		set(global.events[popup].name, null);
 		tween(global.layer[popup_bg].bgalpha, 0.0, 0.25);
