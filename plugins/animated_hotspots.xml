@@ -11,6 +11,16 @@
 	       depth="1000"
 	       onloaded="skin_hotspotstyle_setup();"
 	       />
+	<style name="skin_animationhotspotstyle_center"
+					edge="center"
+					distorted="false"
+					tooltip=""
+					linkedscene=""
+					linkedscene_lookat=""
+					onclick="skin_hotspotstyle_click();"
+					depth="1000"
+					onloaded="skin_hotspotstyle_setup();"
+					/>
 
 	<style name="hotspot_text"
 				 handcursor="true"
