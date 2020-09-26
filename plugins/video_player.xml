@@ -41,9 +41,45 @@
 			<layer name="videoplayer_btn_next_icon" style="skin_base" crop="64|64|64|64" align="center" scale="0.5" enabled="false" />
 		</layer>
 
-		<layer name="video_loadingtext" zorder="2" type="image" url="%VIEWER%/artexb/skin/159.svg" width="64" height="64" scale="0.5" align="center" visible="false" bg="false" enabled="false" />
-		<layer name="video_play_btn" zorder="2" style="skin_base" crop="0|640|64|64" align="center" scale="1" alpha="0.5" enabled="false" />
-
+		<layer name="video_loadingtext" 
+			   zorder="2" 
+			   type="container" 
+			   width="64" 
+			   height="64" 
+			   scale="1" 
+			   align="center" 
+			   visible="false" 
+			   bg="false" 
+			   enabled="false">
+			<plugin name="lottie_video_loadingtext"
+					width="100%"
+					height="100%"
+					url="%VIEWER%/artexb/plugins/lottie.js"
+					dataurl="../img/27-loading.json"
+					keep="true"
+					align="center"
+					onloaded="startanimation();"/>
+		</layer>
+		<layer name="video_play_btn"
+			   zorder="2"
+			   type="container" 
+				width="48" 
+				height="48" 
+				scale="1" 
+				align="center" 
+				visible="false" 
+				bg="false" 
+				enabled="false">
+		
+			<plugin name="lottie_video_play_btn"
+					width="100%"
+					height="100%"
+					url="%VIEWER%/artexb/plugins/lottie.js"
+					dataurl="../img/video_play.json"
+					keep="true"
+					align="center"
+					onloaded="startanimation();"/>
+		</layer>
 	</layer>
 
 
