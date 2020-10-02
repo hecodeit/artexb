@@ -51,14 +51,15 @@
 			   visible="false" 
 			   bg="false" 
 			   enabled="false">
-			<plugin name="lottie_video_loadingtext"
+			<layer name="lottie_video_loadingtext"
+					type="container"
 					width="100%"
 					height="100%"
-					url="%VIEWER%/artexb/plugins/lottie.js"
-					dataurl="../img/27-loading.json"
 					keep="true"
 					align="center"
-					onloaded="startanimation();"/>
+					iconurl="animated_icon/27-loading.json"
+					onloaded="load_lottie('lottie_video_loadingtext', get(iconurl));"
+					/>
 		</layer>
 		<layer name="video_play_btn"
 			   zorder="2"
@@ -70,21 +71,23 @@
 				visible="false" 
 				bg="false" 
 				enabled="false">
-		
-			<plugin name="lottie_video_play_btn"
+
+			<layer name="lottie_video_play_btn"
+					type="container"
 					width="100%"
 					height="100%"
-					url="%VIEWER%/artexb/plugins/lottie.js"
-					dataurl="../img/video_play.json"
 					keep="true"
 					align="center"
-					onloaded="startanimation();"/>
+					iconurl="animated_icon/video_play.json"
+					onloaded="load_lottie('lottie_video_play_btn', get(iconurl));"
+					/>
 		</layer>
 	</layer>
 
 
 	<action name="videoplayer_open">
 		<!-- trace(get(name)); -->
+		audiobtnstop_click();
 		hotspot[%3].pause();
 		set(hotspot[%3].onvideoready,
 			hotspot[%3].pause();
@@ -175,7 +178,6 @@
 			delayedcall(1, check_loading()),
 			set(layer[video_loadingtext].visible, false);
 		);
-
 	</action>
 
 	<action name="videoplayer_plugin_resize">

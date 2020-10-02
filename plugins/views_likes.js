@@ -37,7 +37,7 @@ function krpanoplugin()
         plugin = pluginobject;
 
         // first - say hello
-        krpano.trace(1, "hello from plugin[" + plugin.name + "]");
+        // krpano.trace(1, "hello from plugin[" + plugin.name + "]");
         VIEWS_COUNT_URL = plugin.api + '/wp-json/simple_views_counter/set?id=';
         LIKES_COUNT_URL = plugin.api + '/wp-json/simple_likes_button/get?id=';
         LIKES_COUNT_POST_URL = plugin.api + '/wp-json/simple_likes_button/set?id=';
@@ -76,13 +76,13 @@ function krpanoplugin()
 
     function action_update_views(){
       ajax(VIEWS_COUNT_URL+plugin.post_id, function(res) {
-        krpano.trace(1,res);
+        // krpano.trace(1,res);
         plugin.views_count = res;
         krpano.call( "update_views_likes()" );
       });
       ajax(LIKES_COUNT_URL+plugin.post_id, function(res) {
-        krpano.trace(1,res);
-        krpano.trace('hi');
+        // krpano.trace(1,res);
+        // krpano.trace('hi');
         if(res === 'no found'){
           plugin.likes_count = 'no found';
         }
@@ -98,7 +98,7 @@ function krpanoplugin()
     function click_likes() {
       if(plugin.already_like == 'false'){
         ajax(LIKES_COUNT_POST_URL+plugin.post_id, function(res) {
-          krpano.trace(1,res);
+          // krpano.trace(1,res);
           plugin.likes_count = res;
           plugin.already_like = 'true'
           krpano.call( "update_views_likes()" );

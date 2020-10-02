@@ -1,0 +1,192 @@
+<krpano>
+
+
+<!-- 在 skin/vtourskin.xml中 控制隐藏或者显示 -->
+<events 
+	keep="true" 
+	name="floor_events" 
+	onnewscene="floor_newscene();"
+/>
+
+<action name="toggl_audiobtns">
+	if(layer[audiobtnplay].y GT 100,
+		back_audiobtns(),
+		upper_audiobtns()
+	);
+</action>
+
+<action name="upper_audiobtns">
+	tween(layer[audiobtnplay].y, 200,0.25);
+	tween(layer[audiobtnstop].y, 200,0.25);
+</action>
+
+<action name="back_audiobtns">
+	tween(layer[audiobtnplay].y, 100,0.25);
+	tween(layer[audiobtnstop].y, 100,0.25);
+</action>
+
+<action name="lower_audiobtns">
+	tween(layer[audiobtnplay].y, -100,1);
+	tween(layer[audiobtnstop].y, -100,1);
+</action>
+
+<layer name="audiobtnplay" 
+		style="skin_custom_white" 
+		crop="0|768|64|64" 
+		align="rightbottom" 
+		visible="true" 
+		bgalpha="1.0" 
+		keep="true"
+		y="100"
+		x="18"
+		scale="0.5"
+		zorder="3"
+		bgborder="2 0xFFFFFF 1"
+		bgroundedge="64"
+		onclick="play_audio();" />
+<layer name="audiobtnstop" 
+		type="container"
+		align="rightbottom" 
+		visible="false" 
+		bgalpha="0" 
+		keep="true"
+		y="100"
+		x="18"
+		width="32"
+		height="32"
+		zorder="4"
+		bgborder="1 0xFFFFFF 1"
+		bgroundedge="64">
+		<layer name="lottie_audioplay_loading"
+			type="container"
+			width="80%"
+			height="80%"
+			keep="true"
+			align="center"
+			iconurl="animated_icon/27-loading.json"
+			onloaded="load_lottie('lottie_audioplay_loading', get(iconurl));"
+            />
+		<layer name="lottie_audioplay"
+			type="container"
+			width="60%"
+			height="60%"
+			keep="true"
+			align="center"
+			iconurl="animated_icon/music.json"
+			onloaded="load_lottie('lottie_audioplay', get(iconurl));"
+            />
+		<layer 
+			name="audiobtnstop_action" 
+			type="text" 
+			align="center" 
+			x="0" y="0" width="48" height="48" 
+			alpha="0" 
+			onclick="audiobtnstop_click();" />
+		
+</layer>
+
+
+<action name="switch_audiobutton">
+	if(audiostatus == open,
+		set(audiostatus, closed);
+		for(set(i,1), i LE 4, inc(i),
+			set(_audiobn, calc:'audiobtn' + i);
+			tween(layer[get(_audiobn)].x, -50,0.4);
+		);
+		,
+		for(set(i,1), i LE 4, inc(i),
+			set(_audiobn, calc:'audiobtn' + i);
+			tween(layer[get(_audiobn)].x, 10,0.4);
+		);
+		set(audiostatus, open);
+	)
+</action>
+
+<action name="audiobtnstop_click">
+	set(layer[audiobtnplay].visible, true);
+	set(layer[audiobtnstop].visible, false);
+	stopaudio();
+	if(hotspot[videospot_bg_audio],
+		set(hotspot[videospot_bg_audio].muted, false)
+	);
+	
+</action>
+
+<action name="floor_newscene">
+	set(floorstatus, open);
+
+	set(layer[btn2].alpha, 1);
+	set(layer[btn3].alpha, 1);
+	set(layer[btn4].alpha, 1);
+
+
+	txtsplit(xml.scene,'_', arr);
+	<!-- trace(arr); -->
+
+	<!-- 音频相关设置 -->
+	set(audiostatus, open);
+	set(current_scene_en_audio,no_audio);
+	set(current_scene_zh_audio,no_audio);
+
+	setAudioPath(get(scene[get(xml.scene)].name));
+
+
+	if(audio_isplaying AND audio_isplaying == audio_fixed_play_key,
+		set(layer[audiobtn1].alpha, 1);
+		set(layer[audiobtn2].alpha, 1);
+		stopaudio();
+	);
+
+	<!-- trace(get(current_scene_zh_audio)); -->
+
+	if(current_scene_zh_audio == no_audio,
+		set(layer[audiobtnplay].visible, false);
+		set(layer[audiobtnstop].visible, false);
+		,
+		set(layer[audiobtnplay].visible, true);
+		set(layer[audiobtnstop].visible, false);
+	);
+
+</action>
+
+<action name="play_audio">
+	if(layer["lagnuage_text"].html === 'EN',
+		listenZh(),
+		listenEn()
+	);
+	set(layer[lottie_audioplay].visible, false);
+	set(layer[lottie_audioplay_loading].visible, true);
+	set(sound[audio_fixed_play_key].onplay,
+		delayedcall(1, check_audio_loading(););
+	);
+</action>
+
+<action name="check_audio_loading">
+	if(sound[audio_fixed_play_key].position LT 1,
+		delayedcall(1, check_audio_loading()),
+		set(layer[lottie_audioplay].visible, true);
+		set(layer[lottie_audioplay_loading].visible, false);
+	);
+</action>
+
+<action name="listenEn">
+	set(layer[audiobtnplay].visible, false);
+	set(layer[audiobtnstop].visible, true);
+	stopaudio();
+	if(hotspot[videospot_bg_audio],
+		set(hotspot[videospot_bg_audio].muted, true)
+	);
+	playaudio(audio_fixed_play_key,get(current_scene_en_audio));
+</action>
+
+<action name="listenZh">
+	set(layer[audiobtnplay].visible, false);
+	set(layer[audiobtnstop].visible, true);
+	stopaudio();
+	if(hotspot[videospot_bg_audio],
+		set(hotspot[videospot_bg_audio].muted, true)
+	);
+	playaudio(audio_fixed_play_key,get(current_scene_zh_audio));
+</action>
+
+</krpano>

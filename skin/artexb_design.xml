@@ -92,7 +92,7 @@
   <!-- 浏览｜喜欢 begin -->
   <!--当统计可用-->
   <action name="update_views_likes">
-    trace('update_views_likes');
+    <!-- trace('update_views_likes'); -->
     <!--显示效果-->
     tween(layer[count_btn].alpha,1); tween(layer[praise_btn].alpha,1); set(layer[count_btn].enabled,false); set(layer[praise_btn].enabled,true);
     <!--显示数据-->

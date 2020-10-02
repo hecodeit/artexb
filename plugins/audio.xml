@@ -1,0 +1,66 @@
+<krpano>
+       
+        <events 
+        name="audio_events" 
+        
+        keep="true"
+        onentervr="stopaudio();"
+        onexitvr="stopaudio();"
+        />
+
+
+        <!-- 提示弹窗 -->
+        <hotspot 
+        name="vraudioalert" 
+        keep="true" 
+        type="text"
+        html="轻触屏幕播放"
+        css="font-size:14px;color:white;"
+        vcenter="true"
+        padding="10 15"
+        bg="true"
+        bgcolor="0x000000"
+        bgroundedge="5"
+        enabled="false"
+        distorted="true"
+        visible="false"
+        zorder="100"
+        />
+
+        <plugin 
+        name="audioplugin"
+        keep="true"
+        url.flash="%SWFPATH%/plugins/soundinterface.swf"
+        url.html5="%FIRSTXML%/plugins/soundinterface.js"
+        preload="true"
+        rootpath=""
+        volume="1.0"
+        mute="false"
+        enabled="false"
+        />
+
+        <action name="stopaudio">
+                stopallsounds(true);
+                trace('audio stop : ', get(audio_isplaying));
+                delete(audio_isplaying);
+                events.dispatch(myaudiostop);
+        </action>
+
+        <action name="playaudio">
+                trace('audio start : ', %1);
+                if(audio_isplaying AND audio_isplaying == %1,
+                pausesoundtoggle(%1),
+                stopallsounds(true);
+                set(audio_isplaying, %1);
+                playsound(%1, %2, 1, stopaudio();%3(););
+                if(device.ios AND webvr.isenabled, alert_warning());)
+        </action>
+
+        <action name="alert_warning">
+                set(hotspot['vraudioalert'].visible, true);
+                set(hotspot['vraudioalert'].ath, get(view.hlookat));
+                set(hotspot['vraudioalert'].atv, calc(view.vlookat - 10));
+                delayedcall(3.0, set(hotspot['vraudioalert'].visible, false));
+        </action>
+
+</krpano>
