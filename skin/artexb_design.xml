@@ -232,7 +232,35 @@
       </layer>
     </layer>
 
-    <layer name="skin_loadingtext" zorder="100" type="image" url="%VIEWER%/artexb/skin/159.svg" width="64" height="64" scale="0.5" align="center" x="5" y="-5" html="get:skin_settings.loadingtext" visible="false" bg="false" enabled="false" css="calc:skin_settings.design_text_css + ' text-align:center; font-style:italic; font-size:22px;'" textshadow="get:skin_settings.design_text_shadow" />
+    <layer name="skin_loadingtext"
+           zorder="100"
+           type="container"
+           width="64"
+           height="64"
+           scale="1"
+           align="center"
+           x="0"
+           y="-5"
+           html="get:skin_settings.loadingtext"
+           visible="false"
+           bg="false"
+           enabled="false"
+           css="calc:skin_settings.design_text_css + ' text-align:center; font-style:italic; font-size:22px;'"
+           textshadow="get:skin_settings.design_text_shadow"
+           >
+
+     <layer name="lottie_loadingtext"
+            type="container"
+            width="100%"
+            height="100%"
+            keep="true"
+            align="center"
+            iconurl="animated_icon/27-loading.json"
+            onloaded="load_lottie('lottie_loadingtext', get(iconurl);"
+            />
+
+    </layer>
+
   </layer>
 
   <layer name="skin_btn_prev_fs" onhover="" onout="" />
