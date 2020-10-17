@@ -1,42 +1,38 @@
 <krpano>
        
-        <events 
-        name="audio_events" 
-        
-        keep="true"
-        onentervr="stopaudio();"
-        onexitvr="stopaudio();"
+        <events name="audio_events" 
+                keep="true"
+                onentervr="stopaudio();"
+                onexitvr="stopaudio();"
         />
 
 
         <!-- 提示弹窗 -->
-        <hotspot 
-        name="vraudioalert" 
-        keep="true" 
-        type="text"
-        html="轻触屏幕播放"
-        css="font-size:14px;color:white;"
-        vcenter="true"
-        padding="10 15"
-        bg="true"
-        bgcolor="0x000000"
-        bgroundedge="5"
-        enabled="false"
-        distorted="true"
-        visible="false"
-        zorder="100"
+        <hotspot name="vraudioalert" 
+                 keep="true" 
+                 type="text"
+                 html="轻触屏幕播放"
+                 css="font-size:14px;color:white;"
+                 vcenter="true"
+                 padding="10 15"
+                 bg="true"
+                 bgcolor="0x000000"
+                 bgroundedge="5"
+                 enabled="false"
+                 distorted="true"
+                 visible="false"
+                 zorder="100"
         />
 
-        <plugin 
-        name="audioplugin"
-        keep="true"
-        url.flash="%SWFPATH%/plugins/soundinterface.swf"
-        url.html5="%FIRSTXML%/plugins/soundinterface.js"
-        preload="true"
-        rootpath=""
-        volume="1.0"
-        mute="false"
-        enabled="false"
+        <plugin name="audioplugin"
+                keep="true"
+                url.flash="%SWFPATH%/plugins/soundinterface.swf"
+                url.html5="%FIRSTXML%/plugins/soundinterface.js"
+                preload="true"
+                rootpath=""
+                volume="1.0"
+                mute="false"
+                enabled="false"
         />
 
         <action name="stopaudio">

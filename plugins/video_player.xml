@@ -1,221 +1,221 @@
 <krpano>
-	<!-- video-player.xml 1.19 -->
-	<action name="video_next_loop" scope="local" args="indexadd">
-		<!-- loop find first last Index -->
-		for(set(i,0), i LT hotspot.count, inc(i),
-			if(hotspot[get(i)].video_hs_last == 'true',
-				set(lastIndex, calc(i));
-			);
-			if(hotspot[get(i)].video_hs_first == 'true',
-				set(firstIndex, calc(i));
-			);
-		);
+    <!-- video-player.xml 1.19 -->
+    <action name="video_next_loop" scope="local" args="indexadd">
+        <!-- loop find first last Index -->
+        for(set(i,0), i LT hotspot.count, inc(i),
+            if(hotspot[get(i)].video_hs_last == 'true',
+                set(lastIndex, calc(i));
+            );
+            if(hotspot[get(i)].video_hs_first == 'true',
+                set(firstIndex, calc(i));
+            );
+        );
 
-		<!-- find next index and play -->
-		for(set(i,0), i LT hotspot.count, inc(i),
-			if(hotspot[get(i)].video_hs,
-				if(hotspot[get(i)].playing == 'true',
+        <!-- find next index and play -->
+        for(set(i,0), i LT hotspot.count, inc(i),
+            if(hotspot[get(i)].video_hs,
+                if(hotspot[get(i)].playing == 'true',
 
-					set(nextIndex, calc(i+indexadd));
-					if(hotspot[get(i)].video_hs_last == 'true' AND calc(indexadd) GT 0,
-							set(nextIndex, get(firstIndex));
-					);
-					if(hotspot[get(i)].video_hs_first == 'true' AND calc(indexadd) LT 0,
-							set(nextIndex, get(lastIndex));
-					);
-					delayedcall(1, set(hotspot[get(nextIndex)].playing, true));
-					call(hotspot[get(nextIndex)].onclick);
-					set(hotspot[get(i)].playing, false);
-				);
-			);
+                    set(nextIndex, calc(i+indexadd));
+                    if(hotspot[get(i)].video_hs_last == 'true' AND calc(indexadd) GT 0,
+                            set(nextIndex, get(firstIndex));
+                    );
+                    if(hotspot[get(i)].video_hs_first == 'true' AND calc(indexadd) LT 0,
+                            set(nextIndex, get(lastIndex));
+                    );
+                    delayedcall(1, set(hotspot[get(nextIndex)].playing, true));
+                    call(hotspot[get(nextIndex)].onclick);
+                    set(hotspot[get(i)].playing, false);
+                );
+            );
      );
-	</action>
+    </action>
 
 
-	<!-- previous/next scene buttons for the hidden skin mode -->
-	<layer name="videoplayer_btn" zorder="10" alpha="0" type="container" keep="true" width="100%" height="100%" enabled="false">
-		<layer name="videoplayer_btn_prev" keep="true" type="container" align="lefttop"  x="0" width="40" height="100%" bgcapture="true" alpha="1.0" onclick="video_next_loop(-1);" >
-			<layer name="videoplayer_btn_prev_icon" style="skin_base" crop="0|64|64|64"  align="center" scale="0.5" enabled="false" />
-		</layer>
-		<layer name="videoplayer_btn_next" keep="true" type="container" align="righttop" x="0" width="40" height="100%" bgcapture="true" alpha="1.0" onclick="video_next_loop(+1);" >
-			<layer name="videoplayer_btn_next_icon" style="skin_base" crop="64|64|64|64" align="center" scale="0.5" enabled="false" />
-		</layer>
+    <!-- previous/next scene buttons for the hidden skin mode -->
+    <layer name="videoplayer_btn" zorder="10" alpha="0" type="container" keep="true" width="100%" height="100%" enabled="false">
+        <layer name="videoplayer_btn_prev" keep="true" type="container" align="lefttop"  x="0" width="40" height="100%" bgcapture="true" alpha="1.0" onclick="video_next_loop(-1);" >
+            <layer name="videoplayer_btn_prev_icon" style="skin_base" crop="0|64|64|64"  align="center" scale="0.5" enabled="false" />
+        </layer>
+        <layer name="videoplayer_btn_next" keep="true" type="container" align="righttop" x="0" width="40" height="100%" bgcapture="true" alpha="1.0" onclick="video_next_loop(+1);" >
+            <layer name="videoplayer_btn_next_icon" style="skin_base" crop="64|64|64|64" align="center" scale="0.5" enabled="false" />
+        </layer>
 
-		<layer name="video_loadingtext" 
-			   zorder="2" 
-			   type="container" 
-			   width="64" 
-			   height="64" 
-			   scale="1" 
-			   align="center" 
-			   visible="false" 
-			   bg="false" 
-			   enabled="false">
-			<layer name="lottie_video_loadingtext"
-					type="container"
-					width="100%"
-					height="100%"
-					keep="true"
-					align="center"
-					iconurl="animated_icon/27-loading.json"
-					onloaded="load_lottie('lottie_video_loadingtext', get(iconurl));"
-					/>
-		</layer>
-		<layer name="video_play_btn"
-			   zorder="2"
-			   type="container" 
-				width="48" 
-				height="48" 
-				scale="1" 
-				align="center" 
-				visible="false" 
-				bg="false" 
-				enabled="false">
+        <layer name="video_loadingtext" 
+               zorder="2" 
+               type="container" 
+               width="64" 
+               height="64" 
+               scale="1" 
+               align="center" 
+               visible="false" 
+               bg="false" 
+               enabled="false">
+            <layer name="lottie_video_loadingtext"
+                   type="container"
+                   width="100%"
+                   height="100%"
+                   keep="true"
+                   align="center"
+                   iconurl="animated_icon/27-loading.json"
+                   onloaded="load_lottie('lottie_video_loadingtext', get(iconurl));"
+                    />
+        </layer>
+        <layer name="video_play_btn"
+               zorder="2"
+               type="container" 
+               width="48" 
+               height="48" 
+               scale="1" 
+               align="center" 
+               visible="false" 
+               bg="false" 
+               enabled="false">
 
-			<layer name="lottie_video_play_btn"
-					type="container"
-					width="100%"
-					height="100%"
-					keep="true"
-					align="center"
-					iconurl="animated_icon/video_play.json"
-					onloaded="load_lottie('lottie_video_play_btn', get(iconurl));"
-					/>
-		</layer>
-	</layer>
-
-
-	<action name="videoplayer_open">
-		<!-- trace(get(name)); -->
-		audiobtnstop_click();
-		hotspot[%3].pause();
-		set(hotspot[%3].onvideoready,
-			hotspot[%3].pause();
-		);
-		set(layer[video_loadingtext].visible, true);
-		set(layer[video_play_btn].visible, false);
-
-		set(hotspot[get(name)].playing, true);
-		if(layer[videoplayer_bg],
-			<!-- error -->
-			<!-- trace('videoplayer_open - there is already a videoplayer!'-); -->
-			if(layer[videoplayer_plugin], layer[videoplayer_plugin].pause() );
-			removelayer(videoplayer_plugin);
-
-			<!-- step two - after the fade-in add the videoplayer plugin -->
-			addlayer(videoplayer_plugin);
-			set(layer[videoplayer_plugin].parent, layer[videoplayer_bg]);
-			set(layer[videoplayer_plugin].align, center);
-			set(layer[videoplayer_plugin].url,'%VIEWER%/plugins/videoplayer.js');
-			set(layer[videoplayer_plugin].onloaded, videoplayer_plugin_ready() );
-			set(layer[videoplayer_plugin].videourl, %1 );
-			set(layer[videoplayer_plugin].pausedonstart, true );
-			if('%2' != null, set(layer[videoplayer_plugin].posterurl,'%2'); );
-			set(layer[videoplayer_plugin].loop, true );
-			set(layer[videoplayer_plugin].onclick, togglepause() );
-			set(layer[videoplayer_plugin].alpha, 0.0 );
-
-		  ,
-			<!-- step one - add a background layer and fade it in -->
-			addlayer(videoplayer_bg);
-			set(layer[videoplayer_bg].type, container);
-			set(layer[videoplayer_bg].zorder, 10);
-			set(layer[videoplayer_bg].safearea, false);
-			set(layer[videoplayer_bg].align, lefttop);
-			set(layer[videoplayer_bg].width, 100%);
-			set(layer[videoplayer_bg].height, 100%);
-			set(layer[videoplayer_bg].bgcolor, 0x000000);
-			set(layer[videoplayer_bg].bgalpha, 0.9);
-			set(layer[videoplayer_bg].bgcapture, true);
-			set(layer[videoplayer_bg].handcursor, false);
-			set(layer[videoplayer_bg].alpha, 0.0);
-			set(layer[videoplayer_bg].onclick, videoplayer_close(%3) );
-			tween(layer[videoplayer_bg].alpha, 1.0, 0.5, default,
-				<!-- step two - after the fade-in add the videoplayer plugin -->
-				addlayer(videoplayer_plugin);
-				set(layer[videoplayer_plugin].parent, layer[videoplayer_bg]);
-				set(layer[videoplayer_plugin].align, center);
-				set(layer[videoplayer_plugin].url,'%VIEWER%/plugins/videoplayer.js');
-				set(layer[videoplayer_plugin].onloaded, videoplayer_plugin_ready() );
-				set(layer[videoplayer_plugin].videourl, %1 );
-				set(layer[videoplayer_plugin].pausedonstart, true );
-				if('%2' != null, set(layer[videoplayer_plugin].posterurl,'%2'); );
-				set(layer[videoplayer_plugin].loop, true );
-				set(layer[videoplayer_plugin].onclick, togglepause() );
-				set(layer[videoplayer_plugin].alpha, 0.0 );
+            <layer name="lottie_video_play_btn"
+                   type="container"
+                   width="100%"
+                   height="100%"
+                   keep="true"
+                   align="center"
+                   iconurl="animated_icon/video_play.json"
+                   onloaded="load_lottie('lottie_video_play_btn', get(iconurl));"
+                    />
+        </layer>
+    </layer>
 
 
-				<!-- add pre next button -->
-				set(layer[videoplayer_btn].parent, layer[videoplayer_bg]);
-				set(layer[videoplayer_btn].alpha, 1);
-				set(layer[videoplayer_btn].enabled, true);
-			  );
-		  );
-	</action>
+    <action name="videoplayer_open">
+        <!-- trace(get(name)); -->
+        audiobtnstop_click();
+        hotspot[%3].pause();
+        set(hotspot[%3].onvideoready,
+            hotspot[%3].pause();
+        );
+        set(layer[video_loadingtext].visible, true);
+        set(layer[video_play_btn].visible, false);
 
-	<action name="videoplayer_plugin_ready">
-		if(layer[videoplayer_plugin],
-			set(events[videoplayer_events].onresize, videoplayer_plugin_resize() );
-			set(layer[videoplayer_plugin].onvideoready,
-					videoplayer_plugin_resize();
-					tween(alpha,1,0.5,default);
-					set(layer[video_loadingtext].visible, false);
-					set(layer[video_play_btn].visible, true);
-			   );
-			set(layer[videoplayer_plugin].onvideoplay,
-					set(layer[video_play_btn].visible, false);
-					set(layer[video_loadingtext].visible, true);
-					delayedcall(1, check_loading(););
-			   );
-			set(layer[videoplayer_plugin].onvideopaused,
-					set(layer[video_play_btn].visible, true);
-			   );
-			);
-	</action>
+        set(hotspot[get(name)].playing, true);
+        if(layer[videoplayer_bg],
+            <!-- error -->
+            <!-- trace('videoplayer_open - there is already a videoplayer!'-); -->
+            if(layer[videoplayer_plugin], layer[videoplayer_plugin].pause() );
+            removelayer(videoplayer_plugin);
 
-	<action name="check_loading">
-		if(get(layer[videoplayer_plugin].time) LT 3,
-			delayedcall(1, check_loading()),
-			set(layer[video_loadingtext].visible, false);
-		);
-	</action>
+            <!-- step two - after the fade-in add the videoplayer plugin -->
+            addlayer(videoplayer_plugin);
+            set(layer[videoplayer_plugin].parent, layer[videoplayer_bg]);
+            set(layer[videoplayer_plugin].align, center);
+            set(layer[videoplayer_plugin].url,'%VIEWER%/plugins/videoplayer.js');
+            set(layer[videoplayer_plugin].onloaded, videoplayer_plugin_ready() );
+            set(layer[videoplayer_plugin].videourl, %1 );
+            set(layer[videoplayer_plugin].pausedonstart, true );
+            if('%2' != null, set(layer[videoplayer_plugin].posterurl,'%2'); );
+            set(layer[videoplayer_plugin].loop, true );
+            set(layer[videoplayer_plugin].onclick, togglepause() );
+            set(layer[videoplayer_plugin].alpha, 0.0 );
 
-	<action name="videoplayer_plugin_resize">
-		<!-- use 90% width or height of available screen size -->
-		div(aspect, layer[videoplayer_plugin].imagewidth, layer[videoplayer_plugin].imageheight);
-		mul(new_videowidth, stagewidth, 0.90);
-		div(new_videoheight, new_videowidth, aspect);
-		mul(max_videoheight, stageheight, 0.90);
-		if(new_videoheight GT max_videoheight,
-			copy(new_videoheight, max_videoheight);
-			mul(new_videowidth, new_videoheight, aspect);
-		  );
-		roundval(new_videowidth);
-		roundval(new_videoheight);
-		copy(layer[videoplayer_plugin].width, new_videowidth);
-		copy(layer[videoplayer_plugin].height, new_videoheight);
-	</action>
+          ,
+            <!-- step one - add a background layer and fade it in -->
+            addlayer(videoplayer_bg);
+            set(layer[videoplayer_bg].type, container);
+            set(layer[videoplayer_bg].zorder, 10);
+            set(layer[videoplayer_bg].safearea, false);
+            set(layer[videoplayer_bg].align, lefttop);
+            set(layer[videoplayer_bg].width, 100%);
+            set(layer[videoplayer_bg].height, 100%);
+            set(layer[videoplayer_bg].bgcolor, 0x000000);
+            set(layer[videoplayer_bg].bgalpha, 0.9);
+            set(layer[videoplayer_bg].bgcapture, true);
+            set(layer[videoplayer_bg].handcursor, false);
+            set(layer[videoplayer_bg].alpha, 0.0);
+            set(layer[videoplayer_bg].onclick, videoplayer_close(%3) );
+            tween(layer[videoplayer_bg].alpha, 1.0, 0.5, default,
+                <!-- step two - after the fade-in add the videoplayer plugin -->
+                addlayer(videoplayer_plugin);
+                set(layer[videoplayer_plugin].parent, layer[videoplayer_bg]);
+                set(layer[videoplayer_plugin].align, center);
+                set(layer[videoplayer_plugin].url,'%VIEWER%/plugins/videoplayer.js');
+                set(layer[videoplayer_plugin].onloaded, videoplayer_plugin_ready() );
+                set(layer[videoplayer_plugin].videourl, %1 );
+                set(layer[videoplayer_plugin].pausedonstart, true );
+                if('%2' != null, set(layer[videoplayer_plugin].posterurl,'%2'); );
+                set(layer[videoplayer_plugin].loop, true );
+                set(layer[videoplayer_plugin].onclick, togglepause() );
+                set(layer[videoplayer_plugin].alpha, 0.0 );
 
-	<action name="videoplayer_close">
-		for(set(i,0), i LT hotspot.count, inc(i),
-			if(hotspot[get(i)].video_hs,
-				set(hotspot[get(i)].playing, false);
-			);
-		);
 
-		if('%1' != null, hotspot[%1].play(); );
+                <!-- add pre next button -->
+                set(layer[videoplayer_btn].parent, layer[videoplayer_bg]);
+                set(layer[videoplayer_btn].alpha, 1);
+                set(layer[videoplayer_btn].enabled, true);
+              );
+          );
+    </action>
 
-		set(events.[videoplayer_events].name, null);
-		if(layer[videoplayer_plugin], layer[videoplayer_plugin].pause() );
-		set(layer[videoplayer_bg].onclick, null);
+    <action name="videoplayer_plugin_ready">
+        if(layer[videoplayer_plugin],
+            set(events[videoplayer_events].onresize, videoplayer_plugin_resize() );
+            set(layer[videoplayer_plugin].onvideoready,
+                    videoplayer_plugin_resize();
+                    tween(alpha,1,0.5,default);
+                    set(layer[video_loadingtext].visible, false);
+                    set(layer[video_play_btn].visible, true);
+               );
+            set(layer[videoplayer_plugin].onvideoplay,
+                    set(layer[video_play_btn].visible, false);
+                    set(layer[video_loadingtext].visible, true);
+                    delayedcall(1, check_loading(););
+               );
+            set(layer[videoplayer_plugin].onvideopaused,
+                    set(layer[video_play_btn].visible, true);
+               );
+            );
+    </action>
 
-		<!-- tween(layer[videoplayer_plugin].scale, 0.0, 0.5, easeInBack); -->
-		tween(layer[videoplayer_bg].alpha, 0.0, 0.5, default,
-			removelayer(videoplayer_plugin);
-			removelayer(videoplayer_bg);
-			set(layer[videoplayer_btn].alpha, 0);
-			set(layer[videoplayer_btn].enabled, false);
-		  );
-	</action>
+    <action name="check_loading">
+        if(get(layer[videoplayer_plugin].time) LT 3,
+            delayedcall(1, check_loading()),
+            set(layer[video_loadingtext].visible, false);
+        );
+    </action>
+
+    <action name="videoplayer_plugin_resize">
+        <!-- use 90% width or height of available screen size -->
+        div(aspect, layer[videoplayer_plugin].imagewidth, layer[videoplayer_plugin].imageheight);
+        mul(new_videowidth, stagewidth, 0.90);
+        div(new_videoheight, new_videowidth, aspect);
+        mul(max_videoheight, stageheight, 0.90);
+        if(new_videoheight GT max_videoheight,
+            copy(new_videoheight, max_videoheight);
+            mul(new_videowidth, new_videoheight, aspect);
+          );
+        roundval(new_videowidth);
+        roundval(new_videoheight);
+        copy(layer[videoplayer_plugin].width, new_videowidth);
+        copy(layer[videoplayer_plugin].height, new_videoheight);
+    </action>
+
+    <action name="videoplayer_close">
+        for(set(i,0), i LT hotspot.count, inc(i),
+            if(hotspot[get(i)].video_hs,
+                set(hotspot[get(i)].playing, false);
+            );
+        );
+
+        if('%1' != null, hotspot[%1].play(); );
+
+        set(events.[videoplayer_events].name, null);
+        if(layer[videoplayer_plugin], layer[videoplayer_plugin].pause() );
+        set(layer[videoplayer_bg].onclick, null);
+
+        <!-- tween(layer[videoplayer_plugin].scale, 0.0, 0.5, easeInBack); -->
+        tween(layer[videoplayer_bg].alpha, 0.0, 0.5, default,
+            removelayer(videoplayer_plugin);
+            removelayer(videoplayer_bg);
+            set(layer[videoplayer_btn].alpha, 0);
+            set(layer[videoplayer_btn].enabled, false);
+          );
+    </action>
 
 </krpano>

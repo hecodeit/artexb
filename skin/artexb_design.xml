@@ -30,36 +30,36 @@
 
   <!-- 简介 begin-->
   <data name="popup_intro_en" mobilesize="32px 10px 32px 10px" desktopsize="64px 20% 32px 20%">
-		<![CDATA[
-			<div>
-				<div style="font-size:21px;font-weight:bold;">Lorem Ipsum</div>
-				<hr style="border:0;border-top:1px solid white;">
-				<ul>
-					<li>Vivamus sodales risus sit amet risus convallis euismod.</li>
-					<li>Donec risus felis, sagittis congue dictum quis, ornare nec massa. Integer dignissim, eros in viverra varius, augue quam lobortis elit, id pellentesque lacus eros vitae ex.</li>
-				</ul>
-				<p>Ut tincidunt hendrerit interdum. Nunc eros magna, convallis a molestie eget, elementum sed quam. Maecenas et maximus libero. Morbi placerat pellentesque lacus, in malesuada odio lobortis sed. Donec elementum mi at ipsum commodo, nec consequat massa auctor. Aliquam rhoncus turpis et nibh congue semper. Vestibulum vitae auctor sapien, vel tristique leo. Integer venenatis, nisl a mollis congue, lorem neque tempus nisi, quis commodo dui turpis aliquam nunc. In pulvinar blandit velit, non interdum ligula blandit accumsan. Fusce quis fermentum justo. Aenean massa metus, accumsan at ipsum in, cursus pulvinar massa. Praesent accumsan ante odio, vel volutpat eros vehicula sit amet. Maecenas vehicula libero eget nisi pharetra fermentum.</p>
-				<p>Nullam eu viverra nisi, eu lobortis turpis. Suspendisse varius ultricies orci, id aliquam mauris aliquam id. Aenean non diam sed mi venenatis scelerisque. Donec aliquam justo nunc, non gravida eros blandit at. Sed iaculis venenatis nulla, ut accumsan urna fringilla vitae. Suspendisse eu nisi cursus, fermentum nulla sed, rhoncus est. Praesent venenatis, lorem quis facilisis accumsan, orci nibh lacinia eros, eu pulvinar sem sem a turpis. Nam malesuada sollicitudin justo, facilisis lobortis orci sagittis in. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam sit amet nunc ac eros porttitor condimentum. Vestibulum libero nisi, cursus suscipit sodales sed, accumsan nec sapien.</p>
-			</div>
-		]]>
-	</data>
+    <![CDATA[
+      <div>
+        <div style="font-size:21px;font-weight:bold;">Lorem Ipsum</div>
+        <hr style="border:0;border-top:1px solid white;">
+        <ul>
+          <li>Vivamus sodales risus sit amet risus convallis euismod.</li>
+          <li>Donec risus felis, sagittis congue dictum quis, ornare nec massa. Integer dignissim, eros in viverra varius, augue quam lobortis elit, id pellentesque lacus eros vitae ex.</li>
+        </ul>
+        <p>Ut tincidunt hendrerit interdum. Nunc eros magna, convallis a molestie eget, elementum sed quam. Maecenas et maximus libero. Morbi placerat pellentesque lacus, in malesuada odio lobortis sed. Donec elementum mi at ipsum commodo, nec consequat massa auctor. Aliquam rhoncus turpis et nibh congue semper. Vestibulum vitae auctor sapien, vel tristique leo. Integer venenatis, nisl a mollis congue, lorem neque tempus nisi, quis commodo dui turpis aliquam nunc. In pulvinar blandit velit, non interdum ligula blandit accumsan. Fusce quis fermentum justo. Aenean massa metus, accumsan at ipsum in, cursus pulvinar massa. Praesent accumsan ante odio, vel volutpat eros vehicula sit amet. Maecenas vehicula libero eget nisi pharetra fermentum.</p>
+        <p>Nullam eu viverra nisi, eu lobortis turpis. Suspendisse varius ultricies orci, id aliquam mauris aliquam id. Aenean non diam sed mi venenatis scelerisque. Donec aliquam justo nunc, non gravida eros blandit at. Sed iaculis venenatis nulla, ut accumsan urna fringilla vitae. Suspendisse eu nisi cursus, fermentum nulla sed, rhoncus est. Praesent venenatis, lorem quis facilisis accumsan, orci nibh lacinia eros, eu pulvinar sem sem a turpis. Nam malesuada sollicitudin justo, facilisis lobortis orci sagittis in. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam sit amet nunc ac eros porttitor condimentum. Vestibulum libero nisi, cursus suscipit sodales sed, accumsan nec sapien.</p>
+      </div>
+    ]]>
+  </data>
 
-	<data name="popup_intro_cn" mobilesize="32px 10px 32px 10px" desktopsize="64px 20% 32px 20%">
-		<![CDATA[
-			<div>
-				<div style="font-size:21px;font-weight:bold;">幸村西羊身尺朱苗</div>
-				<hr style="border:0;border-top:1px solid white;">
-				<ul>
-					<li>像人工白植白。太吹色村呀巾四許春們良</li>
-					<li>禾發到羽道，呢斗欠院屋頁，山步北：冰校回早鴨，再波尤那往哪壯抓福固右科地買兌半男壯福立乞</li>
-				</ul>
-				<p>至枝口親年借忍喝寫知父師北孝家卜，每登動空杯立法奶定快拉晚不才雞中用。幼禾虎八、但封目色真神巾頁跟流右好呀愛海帶幸路、告海封裏苦首飯姊飽喜包三北占坐元坡！游坐蛋？下東話元色院。</p>
-				<p>詞現功字幫已羊很首夏。爪還可假門我支飽晚跟干「送兆」金耍能京胡時耳世校苦浪首公八邊讀流歡光；掃亮抓雄北第黑包具辛三羊。登具幫北從而亭京一半！羽果卜做公這友禾亮大明。尾跑游它正路尤苦戊課念個，少尾玩休進士千英室員怎神羽畫或結麼躲南己、或午清從躲豆上記英哪行國。</p>
-			</div>
-		]]>
-	</data>
+  <data name="popup_intro_cn" mobilesize="32px 10px 32px 10px" desktopsize="64px 20% 32px 20%">
+    <![CDATA[
+      <div>
+        <div style="font-size:21px;font-weight:bold;">幸村西羊身尺朱苗</div>
+        <hr style="border:0;border-top:1px solid white;">
+        <ul>
+          <li>像人工白植白。太吹色村呀巾四許春們良</li>
+          <li>禾發到羽道，呢斗欠院屋頁，山步北：冰校回早鴨，再波尤那往哪壯抓福固右科地買兌半男壯福立乞</li>
+        </ul>
+        <p>至枝口親年借忍喝寫知父師北孝家卜，每登動空杯立法奶定快拉晚不才雞中用。幼禾虎八、但封目色真神巾頁跟流右好呀愛海帶幸路、告海封裏苦首飯姊飽喜包三北占坐元坡！游坐蛋？下東話元色院。</p>
+        <p>詞現功字幫已羊很首夏。爪還可假門我支飽晚跟干「送兆」金耍能京胡時耳世校苦浪首公八邊讀流歡光；掃亮抓雄北第黑包具辛三羊。登具幫北從而亭京一半！羽果卜做公這友禾亮大明。尾跑游它正路尤苦戊課念個，少尾玩休進士千英室員怎神羽畫或結麼躲南己、或午清從躲豆上記英哪行國。</p>
+      </div>
+    ]]>
+  </data>
 
-	<action name="popup_intro">
+  <action name="popup_intro">
     open_html_box('popup_intro_cn', 'popup_intro_en');
   </action>
   <!-- 简介 end-->
@@ -68,19 +68,19 @@
   <!-- 关注 begin-->
   <data name="qr_data_cn" roundedge="6" mobilesize="7px 7px 7px 7px" desktopsize="7px 7px 7px 7px" popurl="qr.jpg">
     <![CDATA[
-		<div>
+    <div>
       <img style="-webkit-touch-callout: none;border-radius: 4px;display: block;margin-left: auto;margin-right: auto;" src="%POPURL%" height="116" width="115">
       <div style="padding-top:4px;text-align:center;font-size:9px;">官方微信公众号</div>
-		</div>
-	]]>
+    </div>
+  ]]>
   </data>
   <data name="qr_data_en" roundedge="6" mobilesize="7px 7px 7px 7px" desktopsize="7px 7px 7px 7px" popurl="qr.jpg">
     <![CDATA[
-		<div>
+    <div>
       <img style="-webkit-touch-callout: none;border-radius: 4px;display: block;margin-left: auto;margin-right: auto;" src="%POPURL%" height="116" width="115">
       <div style="padding-top:4px;text-align:center;font-size:9px;">WeChat Official Account</div>
-		</div>
-	]]>
+    </div>
+  ]]>
   </data>
   <action name="qr_button_click">
     if(layer["lagnuage_text"].html === 'EN',
@@ -126,65 +126,65 @@
   </action>
 
   <action name="skin_hideskin" scope="local" args="hidetimemode">
-		calc(hidetime, hidetimemode == 'instant' ? 0.0 : 0.5);
+    calc(hidetime, hidetimemode == 'instant' ? 0.0 : 0.5);
 
-		callwith(layer[skin_scroll_window],   skin_calc_opened_closed() );
-		callwith(layer[skin_splitter_bottom], skin_calc_opened_closed() );
-		callwith(layer[skin_control_bar],     skin_calc_opened_closed() );
+    callwith(layer[skin_scroll_window],   skin_calc_opened_closed() );
+    callwith(layer[skin_splitter_bottom], skin_calc_opened_closed() );
+    callwith(layer[skin_control_bar],     skin_calc_opened_closed() );
 
-		if(layer[skin_map].state    != 'closed', skin_showmap(false);    if(hidetime GT 0, wait(0.40)); );
-		if(layer[skin_thumbs].state != 'closed', skin_showthumbs(false); if(hidetime GT 0, wait(0.25)); );
+    if(layer[skin_map].state    != 'closed', skin_showmap(false);    if(hidetime GT 0, wait(0.40)); );
+    if(layer[skin_thumbs].state != 'closed', skin_showthumbs(false); if(hidetime GT 0, wait(0.25)); );
 
-		tween(layer[skin_scroll_window].y,   get(layer[skin_scroll_window  ].y_closed), get(hidetime));
-		tween(layer[skin_splitter_bottom].y, get(layer[skin_splitter_bottom].y_closed), get(hidetime));
-		tween(layer[skin_control_bar].y,     get(layer[skin_control_bar    ].y_closed), get(hidetime));
+    tween(layer[skin_scroll_window].y,   get(layer[skin_scroll_window  ].y_closed), get(hidetime));
+    tween(layer[skin_splitter_bottom].y, get(layer[skin_splitter_bottom].y_closed), get(hidetime));
+    tween(layer[skin_control_bar].y,     get(layer[skin_control_bar    ].y_closed), get(hidetime));
 
-		set(layer[skin_btn_prev_fs].enabled, true);
-		set(layer[skin_btn_next_fs].enabled, true);
-		tween(layer[skin_btn_prev_fs].x|layer[skin_btn_prev_fs].alpha, 0|0.6, get(hidetime));
-		tween(layer[skin_btn_next_fs].x|layer[skin_btn_next_fs].alpha, 0|0.6, get(hidetime));
+    set(layer[skin_btn_prev_fs].enabled, true);
+    set(layer[skin_btn_next_fs].enabled, true);
+    tween(layer[skin_btn_prev_fs].x|layer[skin_btn_prev_fs].alpha, 0|0.6, get(hidetime));
+    tween(layer[skin_btn_next_fs].x|layer[skin_btn_next_fs].alpha, 0|0.6, get(hidetime));
 
-		if(layer[skin_logo], tween(layer[skin_logo].alpha, 0.0, 0.5, default, set(layer[skin_logo].visible,false)); );
+    if(layer[skin_logo], tween(layer[skin_logo].alpha, 0.0, 0.5, default, set(layer[skin_logo].visible,false)); );
     if(layer[praise_btn], tween(layer[praise_btn].alpha, 0.0, 0.5, default, set(layer[praise_btn].visible,false)); );
     if(layer[lagnuage_button], tween(layer[lagnuage_button].alpha, 0.0, 0.5, default, set(layer[lagnuage_button].visible,false)); );
 
-		stopdelayedcall(skin_btn_show_alpha);
-		set(layer[skin_btn_show].visible, true);
-		delayedcall(skin_btn_show_alpha, get(hidetime), tween(layer[skin_btn_show].alpha, 0.6, 0.25); );
-	</action>
+    stopdelayedcall(skin_btn_show_alpha);
+    set(layer[skin_btn_show].visible, true);
+    delayedcall(skin_btn_show_alpha, get(hidetime), tween(layer[skin_btn_show].alpha, 0.6, 0.25); );
+  </action>
 
 
-	<action name="skin_showskin">
-		tween(layer[skin_scroll_window  ].y, get(layer[skin_scroll_window  ].y_opened));
-		tween(layer[skin_splitter_bottom].y, get(layer[skin_splitter_bottom].y_opened));
-		tween(layer[skin_control_bar    ].y, get(layer[skin_control_bar    ].y_opened));
+  <action name="skin_showskin">
+    tween(layer[skin_scroll_window  ].y, get(layer[skin_scroll_window  ].y_opened));
+    tween(layer[skin_splitter_bottom].y, get(layer[skin_splitter_bottom].y_opened));
+    tween(layer[skin_control_bar    ].y, get(layer[skin_control_bar    ].y_opened));
 
-		set(layer[skin_btn_prev_fs].enabled, false);
-		set(layer[skin_btn_next_fs].enabled, false);
-		tween(layer[skin_btn_prev_fs].x|layer[skin_btn_prev_fs].alpha, -50|0.0);
-		tween(layer[skin_btn_next_fs].x|layer[skin_btn_next_fs].alpha, -50|0.0);
+    set(layer[skin_btn_prev_fs].enabled, false);
+    set(layer[skin_btn_next_fs].enabled, false);
+    tween(layer[skin_btn_prev_fs].x|layer[skin_btn_prev_fs].alpha, -50|0.0);
+    tween(layer[skin_btn_next_fs].x|layer[skin_btn_next_fs].alpha, -50|0.0);
 
-		if(layer[skin_logo], set(layer[skin_logo].visible,true); tween(layer[skin_logo].alpha, 1.0); );
+    if(layer[skin_logo], set(layer[skin_logo].visible,true); tween(layer[skin_logo].alpha, 1.0); );
     if(layer[praise_btn], set(layer[praise_btn].visible,true); tween(layer[praise_btn].alpha, 1.0); );
     if(layer[lagnuage_button], set(layer[lagnuage_button].visible,true); tween(layer[lagnuage_button].alpha, 1.0); );
 
-		stopdelayedcall(skin_btn_show_alpha);
-		set(layer[skin_btn_show].visible, false);
-		delayedcall(skin_btn_show_alpha, 0.25, tween(layer[skin_btn_show].alpha, 0.0, 0.0); );
-	</action>
+    stopdelayedcall(skin_btn_show_alpha);
+    set(layer[skin_btn_show].visible, false);
+    delayedcall(skin_btn_show_alpha, 0.25, tween(layer[skin_btn_show].alpha, 0.0, 0.0); );
+  </action>
 
   <!-- context menu - http://krpano.com/docu/xml/#contextmenu -->
-	<contextmenu>
-		<item name="kr" caption="KRPANO"     />
-		<item name="fs" caption="FULLSCREEN" />
+  <contextmenu>
+    <item name="kr" caption="KRPANO"     />
+    <item name="fs" caption="FULLSCREEN" />
 
-		<item name="nv" caption="Normal View"        onclick="skin_view_normal();"        showif="view.vlookatrange == 180" separator="true"      />
-		<item name="pv" caption="Pannini View"       onclick="skin_view_pannini();"       showif="view.vlookatrange == 180" devices="flash|webgl" />
-		<item name="av" caption="Architectural View" onclick="skin_view_architectural();" showif="view.vlookatrange == 180"  />
+    <item name="nv" caption="Normal View"        onclick="skin_view_normal();"        showif="view.vlookatrange == 180" separator="true"      />
+    <item name="pv" caption="Pannini View"       onclick="skin_view_pannini();"       showif="view.vlookatrange == 180" devices="flash|webgl" />
+    <item name="av" caption="Architectural View" onclick="skin_view_architectural();" showif="view.vlookatrange == 180"  />
 
-		<item name="logo"   caption="© 2020 ARTEXB.COM"  onclick="openurl('http://artexb.com')"   separator="true"     />
+    <item name="logo"   caption="© 2020 ARTEXB.COM"  onclick="openurl('http://artexb.com')"   separator="true"     />
 
-	</contextmenu>
+  </contextmenu>
 
   <!-- background layer -->
   <layer name="background" keep="true" type="container" align="center" width="100%" height="100%">
@@ -236,7 +236,7 @@
   </layer>
 
   <layer name="skin_btn_prev_fs" onhover="" onout="" />
-	<layer name="skin_btn_next_fs" onhover="" onout="" />
+  <layer name="skin_btn_next_fs" onhover="" onout="" />
 
 
 

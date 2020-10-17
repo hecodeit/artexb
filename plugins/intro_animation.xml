@@ -1,79 +1,79 @@
 <krpano>
-	// 场景遮挡，直到点击进入按钮
-	<layer name="scene_block" keep="true" type="container" bgalpha="1" bgcolor="0xFFFFFF" align="lefttop" width="100%" height="100%" zorder="999"/>
+    // 场景遮挡，直到点击进入按钮
+    <layer name="scene_block" keep="true" type="container" bgalpha="1" bgcolor="0xFFFFFF" align="lefttop" width="100%" height="100%" zorder="999"/>
 
-  <action name="init_intro_animation_layer" scope="local" args="content"><![CDATA[
+  <action name="init_intro_animation_layer" scope="local" args="content">
+    <![CDATA[
     addlayer('intro_animation', intro_animation);
-		set(intro_animation,
-			type=container,
-      width=100%,
-			height=100%,
-			align=center,
-			bgcolor=0xffffff,
-			alpha=1,
-			zorder=1000
-		);
+    set(intro_animation,
+        type=container,
+        width=100%,
+        height=100%,
+        align=center,
+        bgcolor=0xffffff,
+        alpha=1,
+        zorder=1000
+    );
 
-		calc(intro_animation.datacontent, '<iframe style="position:absolute;width:100%;height:100%;top:0px;left:0px;" src="'+content+'" frameborder="0" allowfullscreen></iframe>');
-		calc(intro_animation.onloaded, 'add_iframe_code(get(datacontent),'+');');
+    calc(intro_animation.datacontent, '<iframe style="position:absolute;width:100%;height:100%;top:0px;left:0px;" src="'+content+'" frameborder="0" allowfullscreen></iframe>');
+    calc(intro_animation.onloaded, 'add_iframe_code(get(datacontent),'+');');
 
     delayedcall(10,
- 			if(intro_animation,
- 				set(global.events[intro_animation].name, null);
- 				tween(global.layer[intro_animation].alpha, 0.0, 0.25, default,
- 					removelayer('intro_animation', true);
- 				);
+        if(intro_animation,
+          set(global.events[intro_animation].name, null);
+          tween(global.layer[intro_animation].alpha, 0.0, 0.25, default,
+          removelayer('intro_animation', true);
+        );
         tween(global.layer[scene_block].alpha, 0.0, 0.25, default,
           removelayer('scene_block', true);
         );
- 			 );
- 		);
+      );
+    );
 
-   set(global.events[intro_animation].onclick,
-			set(global.events[intro_animation].name, null);
-			tween(global.layer[intro_animation].alpha, 0.0, 0.25, default,
-				removelayer('intro_animation', true);
-			);
+    set(global.events[intro_animation].onclick,
+      set(global.events[intro_animation].name, null);
+      tween(global.layer[intro_animation].alpha, 0.0, 0.25, default,
+          removelayer('intro_animation', true);
+      );
       tween(global.layer[scene_block].alpha, 0.0, 0.25, default,
         removelayer('scene_block', true);
       );
-		);
+    );
+    ]]>
+  </action>
 
+  <!-- arguments: 1=htmlcode, 2=scrollbars -->
+  <action name="add_iframe_code" type="Javascript"><![CDATA[
+      console.log("add_iframe_code");
+      var div = document.createElement("div");
 
+      // basic styles to fit into the layer size and allow scrolling:
+      div.style.width = "100%";
+      div.style.height = "100%";
+      div.style.boxSizing = "border-box";
+      div.style.overflow = "hidden";
+
+      // allow text selection (optional):
+      div.style.webkitUserSelect =
+      div.style.MozUserSelect =
+      div.style.msUserSelect =
+      div.style.userSelect = "text";
+
+      function stopPropagation(e){ e.stopPropagation(); }
+      function preventDefault(e){ e.preventDefault(); }
+
+      // enable browsed-based mouse-wheel and touch-scrolling support:
+      div.addEventListener("wheel", stopPropagation, true);
+      div.addEventListener("mousewheel", stopPropagation, true);
+      div.addEventListener("DOMMouseScroll", stopPropagation, true);
+      div.addEventListener("touchstart", function(event){ if(krpano.device.ios && window.innerHeight == krpano.display.htmltarget.offsetHeight){ /* avoid the iOS 'overscrolling' for fullpage viewers */ var bs = document.body.parentNode.style; bs.position="fixed"; bs.top=0; bs.left=0; bs.right=0; bs.bottom=0; } krpano.control.preventTouchEvents = false; event.stopPropagation(); }, true);
+      div.addEventListener("touchend", function(event){ krpano.control.preventTouchEvents = true; event.stopPropagation(); }, true);
+      div.addEventListener("gesturestart", preventDefault, true);
+
+      // add the html code:
+      div.innerHTML = args[1];
+
+      // add the div to the layer element:
+      caller.sprite.appendChild(div);
   ]]></action>
-
-	<!-- arguments: 1=htmlcode, 2=scrollbars -->
-	<action name="add_iframe_code" type="Javascript"><![CDATA[
-		console.log("add_iframe_code");
-		var div = document.createElement("div");
-
-		// basic styles to fit into the layer size and allow scrolling:
-		div.style.width = "100%";
-		div.style.height = "100%";
-		div.style.boxSizing = "border-box";
-		div.style.overflow = "hidden";
-
-		// allow text selection (optional):
-		div.style.webkitUserSelect =
-		div.style.MozUserSelect =
-		div.style.msUserSelect =
-		div.style.userSelect = "text";
-
-		function stopPropagation(e){ e.stopPropagation(); }
-		function preventDefault(e){ e.preventDefault(); }
-
-		// enable browsed-based mouse-wheel and touch-scrolling support:
-		div.addEventListener("wheel", stopPropagation, true);
-		div.addEventListener("mousewheel", stopPropagation, true);
-		div.addEventListener("DOMMouseScroll", stopPropagation, true);
-		div.addEventListener("touchstart", function(event){ if(krpano.device.ios && window.innerHeight == krpano.display.htmltarget.offsetHeight){ /* avoid the iOS 'overscrolling' for fullpage viewers */ var bs = document.body.parentNode.style; bs.position="fixed"; bs.top=0; bs.left=0; bs.right=0; bs.bottom=0; } krpano.control.preventTouchEvents = false; event.stopPropagation(); }, true);
-		div.addEventListener("touchend", function(event){ krpano.control.preventTouchEvents = true; event.stopPropagation(); }, true);
-		div.addEventListener("gesturestart", preventDefault, true);
-
-		// add the html code:
-		div.innerHTML = args[1];
-
-		// add the div to the layer element:
-		caller.sprite.appendChild(div);
-	]]></action>
 </krpano>

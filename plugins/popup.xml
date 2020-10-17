@@ -2,7 +2,7 @@
   <include url="%VIEWER%/plugins/iphone_fullscreen_swipe.xml" />
 
   <action name="open_artist_intro">
-		lookto(%1,calc(%2+10),117);
+    lookto(%1,calc(%2+10),117);
     spheretoscreen(hotspot[spot_1].ath, hotspot[spot_1].atv, x, y);
 
     <!-- 设置弹出框高度 -->
@@ -12,7 +12,7 @@
     if(layer["lagnuage_text"].html === 'EN',
     popup('html', get(data[%3].content), -5, get(popY), 160, get(popH), 0x000000, '0,0,0,0.7', true, "center", true, true, false, 6, get(data[%3].mobilesize), get(data[%3].desktopsize) ),
     popup('html', get(data[%4].content), -5, get(popY), 160, get(popH), 0x000000, '0,0,0,0.7', true, "center", true, true, false 6, get(data[%4].mobilesize), get(data[%4].desktopsize) ) );
-	</action>
+  </action>
 
   <action name="open_html_box">
     if(layer["lagnuage_text"].html === 'EN',
@@ -46,8 +46,8 @@
 
       type: html, iframe
       content: <data name="popup_data"><![CDATA[
-            		<h1>hello</h1>
-            	]]></data>
+                <h1>hello</h1>
+              ]]></data>
       xpos, ypost: the postion of popup
       width, height: size
       color: color of background
@@ -80,7 +80,7 @@
 
     <![CDATA[
 
-		if(popup,
+    if(popup,
     popup_close_immediately();
     stopdelayedcall(introimage);
     );
@@ -89,44 +89,44 @@
     addlayer('popup_bg', popup_bg);
     if(setmaxwidth,
       set(popup_bg,
-  			type=container,
-  			align=centertop, width=100%, height=100%,
-  			zorder=99,
-  			handcursor=false,
-  			bgcapture=true,
-  			capture=false,
-  			ondown='popup_close()',
+        type=container,
+        align=centertop, width=100%, height=100%,
+        zorder=99,
+        handcursor=false,
+        bgcapture=true,
+        capture=false,
+        ondown='popup_close()',
         maxwidth=814),
-      set(popup_bg,
-  			type=container,
-  			align=centertop, width=100%, height=100%,
-  			zorder=99,
-  			handcursor=false,
-  			bgcapture=true,
-  			capture=false,
-  			ondown='popup_close()')
+        set(popup_bg,
+        type=container,
+        align=centertop, width=100%, height=100%,
+        zorder=99,
+        handcursor=false,
+        bgcapture=true,
+        capture=false,
+        ondown='popup_close()')
     );
 
-		addlayer('popup', popup);
-		set(popup,
-  			type=container,
+    addlayer('popup', popup);
+    set(popup,
+        type=container,
         parent='popup_bg',
-  			width=calc(width),
-  			height=calc(height),
-  			align=calc(alignsetting),
+        width=calc(width),
+        height=calc(height),
+        align=calc(alignsetting),
         x=calc(xpos),
         y=calc(ypos),
-  			bgborder='0',
-  			bgcolor=calc(color),
-  			bgalpha=0.9,
+        bgborder='0',
+        bgcolor=calc(color),
+        bgalpha=0.9,
         bgroundedge=calc(roundedge),
-  			bgshadow='0 4 10 0x000000 0.3',
-  			bgcapture=true,
-  			maskchildren=false,
-  			capture=true,
-  			handcursor=false,
-  			alpha=0
-  		);
+        bgshadow='0 4 10 0x000000 0.3',
+        bgcapture=true,
+        maskchildren=false,
+        capture=true,
+        handcursor=false,
+        alpha=0
+      );
 
 
       if(global.device.mobile,
@@ -137,43 +137,43 @@
       trace(pop_size);
 
 
-		// optional: add a close button
+    // optional: add a close button
     if(addCloseButton,
       addlayer('popup_close_x', closex);
       if(color === '0x000000',
         set(closex,
-    			url='%VIEWER%/artexb/skin/artexb_skin_custom_white.svg',
+          url='%VIEWER%/artexb/skin/artexb_skin_custom_white.svg',
           crop="64|704|64|64",
-    			parent='popup',
-    			align=righttop,
-    			scale=0.4,
+          parent='popup',
+          align=righttop,
+          scale=0.4,
           x=14, y=18,
-    			zorder=99
-    		),
+          zorder=99
+        ),
         set(closex,
-    			url='%VIEWER%/artexb/skin/artexb_skin_custom.svg',
+          url='%VIEWER%/artexb/skin/artexb_skin_custom.svg',
           crop="64|704|64|64",
-    			parent='popup',
-    			align=righttop,
-    			scale=0.4,
+          parent='popup',
+          align=righttop,
+          scale=0.4,
           x=14, y=18,
-    			zorder=99
-    		);
+          zorder=99
+        );
       );
 
       addlayer('popup_close_x_action', closex_action);
-  		set(closex_action,
+      set(closex_action,
         bgcolor='0x00FFFF',
-  			type=text,
-  			parent='popup',
-  			align=righttop,
+        type=text,
+        parent='popup',
+        align=righttop,
         width='64',
         height='96',
         alpha='0',
         x=0, y=0,
-  			zorder=100,
-  			onclick='popup_close()'
-  		);
+        zorder=100,
+        onclick='popup_close()'
+      );
     );
 
 
@@ -182,28 +182,28 @@
         copy(popup.datacontent, content);
         calc(popup.onloaded, 'add_html_code(get(datacontent),'+scrollbars+','+addarrow+','+rgba+','+alignsetting+','+pop_size+','+basedir+');');
     ,type == 'iframe',
-      	calc(popup.datacontent, '<iframe style="position:absolute;width:100%;height:100%;top:0px;left:0px;" src="'+content+'" frameborder="0" allowfullscreen></iframe>');
-      	calc(popup.onloaded, 'add_html_code(get(datacontent),'+scrollbars+','+addarrow+','+rgba+','+alignsetting+','+pop_size+');');
+        calc(popup.datacontent, '<iframe style="position:absolute;width:100%;height:100%;top:0px;left:0px;" src="'+content+'" frameborder="0" allowfullscreen></iframe>');
+        calc(popup.onloaded, 'add_html_code(get(datacontent),'+scrollbars+','+addarrow+','+rgba+','+alignsetting+','+pop_size+');');
     ,type == 'image',
     trace('image');
       set(popup_bg,
         bgcolor=0x000000,
-		 		bgalpha=0,
+         bgalpha=0,
         bgcapture=false,
-		 	);
-		 	set(popup,
-		 		bgcolor=0xFFFFFF,
-		 		bgalpha=0,
+       );
+       set(popup,
+         bgcolor=0xFFFFFF,
+         bgalpha=0,
         bgshadow="",
         bgcapture=false,
-		 	);
-			addlayer("popup_image", img);
-			set(img,
-				url=get(content),
-				align=center,
-				width=100%, height=100%,
-				parent=get(popup.name)
-			);
+       );
+      addlayer("popup_image", img);
+      set(img,
+        url=get(content),
+        align=center,
+        width=100%, height=100%,
+        parent=get(popup.name)
+      );
     );
 
     tween(global.layer[popup].alpha, 1.0, 0.2);
@@ -211,40 +211,40 @@
     set(global.events[popup].onclick, popup_close() );
     set(global.events[popup].onresize, popup_close() );
     set(global.events[popup].onmousewheel, popup_close() );
-		set(global.events[popup].onremovepano, popup_close() );
+    set(global.events[popup].onremovepano, popup_close() );
 
     //set(global.layer[popup].onclick, popup_close_immediately() );
 
-	]]></action>
+  ]]></action>
 
   <action name="popup_close">
     trace('close!!!');
-		set(global.plugin[popup_bg].enabled, false);
-		set(global.events[popup].name, null);
-		tween(global.layer[popup_bg].bgalpha, 0.0, 0.25);
-		tween(global.layer[popup].alpha, 0.0, 0.25, default,
-			removelayer('popup_bg', true);
-			scope(private:POPUP, delete(popup); );
-		);
-	</action>
+    set(global.plugin[popup_bg].enabled, false);
+    set(global.events[popup].name, null);
+    tween(global.layer[popup_bg].bgalpha, 0.0, 0.25);
+    tween(global.layer[popup].alpha, 0.0, 0.25, default,
+      removelayer('popup_bg', true);
+      scope(private:POPUP, delete(popup); );
+    );
+  </action>
 
   <action name="popup_close_immediately">
-		set(global.plugin[popup_bg].enabled, false);
-		set(global.events[popup].name, null);
-		set(global.layer[popup_bg].bgalpha, 0.0);
-		set(global.layer[popup].alpha, 0.0);
-	  removelayer('popup_bg', true);
-		scope(private:POPUP, delete(popup); );
-	</action>
+    set(global.plugin[popup_bg].enabled, false);
+    set(global.events[popup].name, null);
+    set(global.layer[popup_bg].bgalpha, 0.0);
+    set(global.layer[popup].alpha, 0.0);
+    removelayer('popup_bg', true);
+    scope(private:POPUP, delete(popup); );
+  </action>
 
   <!-- arguments: 1=htmlcode, 2=scrollbars -->
-	<action name="add_html_code" type="Javascript"><![CDATA[
-		var div = document.createElement("div");
+  <action name="add_html_code" type="Javascript"><![CDATA[
+    var div = document.createElement("div");
 
-		// basic styles to fit into the layer size and allow scrolling:
+    // basic styles to fit into the layer size and allow scrolling:
     div.style.position = "absolute";
-		//div.style.width = "100%";
-		//div.style.height = "100%";
+    //div.style.width = "100%";
+    //div.style.height = "100%";
 
     // console.log(args[9]);
     var sizeNum = args[9].split(' ');
@@ -253,27 +253,27 @@
     div.style.right = sizeNum[1];
     div.style.bottom = sizeNum[2];
     div.style.left = sizeNum[3];
-		//div.style.boxSizing = "border-box";
-		div.style.overflow = args[2] == "true" ? "auto" : "hidden";
+    //div.style.boxSizing = "border-box";
+    div.style.overflow = args[2] == "true" ? "auto" : "hidden";
 
-		// allow text selection (optional):
-		div.style.webkitUserSelect =
-		div.style.MozUserSelect =
-		div.style.msUserSelect =
-		div.style.userSelect = "text";
+    // allow text selection (optional):
+    div.style.webkitUserSelect =
+    div.style.MozUserSelect =
+    div.style.msUserSelect =
+    div.style.userSelect = "text";
 
-		function stopPropagation(e){ e.stopPropagation(); }
-		function preventDefault(e){ e.preventDefault(); }
+    function stopPropagation(e){ e.stopPropagation(); }
+    function preventDefault(e){ e.preventDefault(); }
 
     // enable browsed-based mouse-wheel and touch-scrolling support:
-		div.addEventListener("wheel", stopPropagation, true);
-		div.addEventListener("mousewheel", stopPropagation, true);
-		div.addEventListener("DOMMouseScroll", stopPropagation, true);
-		div.addEventListener("touchstart", function(event){ if(krpano.device.ios && window.innerHeight == krpano.display.htmltarget.offsetHeight){ /* avoid the iOS 'overscrolling' for fullpage viewers */ var bs = document.body.parentNode.style; bs.position="fixed"; bs.top=0; bs.left=0; bs.right=0; bs.bottom=0; } krpano.control.preventTouchEvents = false; event.stopPropagation(); }, true);
-		div.addEventListener("touchend", function(event){ krpano.control.preventTouchEvents = true; event.stopPropagation(); }, true);
-		div.addEventListener("gesturestart", preventDefault, true);
+    div.addEventListener("wheel", stopPropagation, true);
+    div.addEventListener("mousewheel", stopPropagation, true);
+    div.addEventListener("DOMMouseScroll", stopPropagation, true);
+    div.addEventListener("touchstart", function(event){ if(krpano.device.ios && window.innerHeight == krpano.display.htmltarget.offsetHeight){ /* avoid the iOS 'overscrolling' for fullpage viewers */ var bs = document.body.parentNode.style; bs.position="fixed"; bs.top=0; bs.left=0; bs.right=0; bs.bottom=0; } krpano.control.preventTouchEvents = false; event.stopPropagation(); }, true);
+    div.addEventListener("touchend", function(event){ krpano.control.preventTouchEvents = true; event.stopPropagation(); }, true);
+    div.addEventListener("gesturestart", preventDefault, true);
 
-		// add the html code:
+    // add the html code:
     var str = args[1];
     var res = str.replace('%POPURL%', args[10]);
     div.innerHTML = res;
@@ -316,14 +316,14 @@
     arrow.style.borderColor = "rgba("+args[4]+','+args[5]+','+args[6]+','+args[7]+") transparent";
     //console.log(args[3]);
 
-		// add the div to the layer element:
+    // add the div to the layer element:
     if(args[3] == "true"){
       caller.sprite.appendChild(arrow_shadow);
     }
-		caller.sprite.appendChild(div);
+    caller.sprite.appendChild(div);
     if(args[3] == "true"){
       caller.sprite.appendChild(arrow);
     }
-	]]></action>
+  ]]></action>
 
 </krpano>

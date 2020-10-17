@@ -1,71 +1,72 @@
 <krpano>
 
-	<!-- skin_hotspotstyle - style for the hotspots -->
-	<style name="skin_animationhotspotstyle"
-				 edge="top"
-				 distorted="false"
-	       tooltip=""
-	       linkedscene=""
-	       linkedscene_lookat=""
-	       onclick="skin_hotspotstyle_click();"
-	       depth="1000"
-	       onloaded="skin_hotspotstyle_setup();"
-	       />
-	<style name="skin_animationhotspotstyle_center"
-					edge="center"
-					distorted="false"
-					tooltip=""
-					linkedscene=""
-					linkedscene_lookat=""
-					onclick="skin_hotspotstyle_click();"
-					depth="1000"
-					onloaded="skin_hotspotstyle_setup();"
-					/>
+    <!-- skin_hotspotstyle - style for the hotspots -->
+    <style name="skin_animationhotspotstyle"
+           edge="top"
+           distorted="false"
+           tooltip=""
+           linkedscene=""
+           linkedscene_lookat=""
+           onclick="skin_hotspotstyle_click();"
+           depth="1000"
+           onloaded="skin_hotspotstyle_setup();"
+    />
+    <style name="skin_animationhotspotstyle_center"
+           edge="center"
+           distorted="false"
+           tooltip=""
+           linkedscene=""
+           linkedscene_lookat=""
+           onclick="skin_hotspotstyle_click();"
+           depth="1000"
+           onloaded="skin_hotspotstyle_setup();"
+    />
 
-	<style name="hotspot_text"
-				 handcursor="true"
-				 type="text"
-		     css="font-family:Arial; font-weight:bold;font-size:9px; color:#FFFFFF;"
-				 bgborder="2 0xFFFFFF 0.9"
-				 backgroundcolor="0x000000"
-				 backgroundalpha="0"
-				 roundedge="10"
-				 padding="4 6"/>
+    <style name="hotspot_text"
+           handcursor="true"
+           type="text"
+           css="font-family:Arial; font-weight:bold;font-size:9px; color:#FFFFFF;"
+           bgborder="2 0xFFFFFF 0.9"
+           backgroundcolor="0x000000"
+           backgroundalpha="0"
+           roundedge="10"
+           padding="4 6"
+    />
   <!--
-		do_crop_animation(framewidth, frameheight, framerate)
-		- animation by changing the image cropping
-		- parameters:
-		  - framewidth - the width from one frame in pixels
-		  - frameheight - the height from one frame in pixels
-		  - framerate - the animation frame rate in 'frames per second'
-		- the image can be a vertical or horizontal (or both) image-strip / sprite-sheet
-		- the action will loop automatically through all frames from left to right and top to bottom
-	-->
-	<action name="do_crop_animation" scope="local" args="framewidth, frameheight, framerate">
-		<!-- define local variables -->
-		calc(local.xframes, (caller.imagewidth /framewidth) BOR 0);
-		calc(local.frames, xframes * ((caller.imageheight / frameheight) BOR 0));
-		def(local.frame, integer, 0);
+        do_crop_animation(framewidth, frameheight, framerate)
+        - animation by changing the image cropping
+        - parameters:
+          - framewidth - the width from one frame in pixels
+          - frameheight - the height from one frame in pixels
+          - framerate - the animation frame rate in 'frames per second'
+        - the image can be a vertical or horizontal (or both) image-strip / sprite-sheet
+        - the action will loop automatically through all frames from left to right and top to bottom
+    -->
+    <action name="do_crop_animation" scope="local" args="framewidth, frameheight, framerate">
+        <!-- define local variables -->
+        calc(local.xframes, (caller.imagewidth /framewidth) BOR 0);
+        calc(local.frames, xframes * ((caller.imageheight / frameheight) BOR 0));
+        def(local.frame, integer, 0);
 
-		<!-- set the first frame -->
-		calc(caller.crop, '0|0|' + framewidth + '|' + frameheight);
+        <!-- set the first frame -->
+        calc(caller.crop, '0|0|' + framewidth + '|' + frameheight);
 
-		<!-- do the animation -->
-		setinterval(calc('crop_anim_' + caller.name), calc(1.0 / framerate),
-			if(caller.loaded,
-				inc(frame);
-				if(frame GE frames, if(caller.onlastframe !== null, callwith(caller, onlastframe() ) ); set(frame,0); );
-				mod(xpos, frame, xframes);
-				div(ypos, frame, xframes);
-				Math.floor(ypos);
-				mul(xpos, framewidth);
-				mul(ypos, frameheight);
-				calc(caller.crop, xpos + '|' + ypos + '|' + framewidth + '|' + frameheight);
-			  ,
-				<!-- stop the interval when the hotspot gets removed -->
-				clearinterval(calc('crop_anim_' + caller.name));
-			);
-		);
-	</action>
+        <!-- do the animation -->
+        setinterval(calc('crop_anim_' + caller.name), calc(1.0 / framerate),
+            if(caller.loaded,
+                inc(frame);
+                if(frame GE frames, if(caller.onlastframe !== null, callwith(caller, onlastframe() ) ); set(frame,0); );
+                mod(xpos, frame, xframes);
+                div(ypos, frame, xframes);
+                Math.floor(ypos);
+                mul(xpos, framewidth);
+                mul(ypos, frameheight);
+                calc(caller.crop, xpos + '|' + ypos + '|' + framewidth + '|' + frameheight);
+              ,
+                <!-- stop the interval when the hotspot gets removed -->
+                clearinterval(calc('crop_anim_' + caller.name));
+            );
+        );
+    </action>
 
 </krpano>
