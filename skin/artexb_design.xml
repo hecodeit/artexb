@@ -28,6 +28,11 @@
   <style name="poly_hotspot_style"
          alpha="0"/>
 
+  <events onxmlcomplete="jscall( 
+     document.getElementById('pano').style.display = 'block';
+     document.getElementById('loading_kr').style.display='none';
+      );" />
+
   <!-- 简介 begin-->
   <data name="popup_intro_en" mobilesize="32px 10px 32px 10px" desktopsize="64px 20% 32px 20%">
     <![CDATA[
