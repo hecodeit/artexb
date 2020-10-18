@@ -28,7 +28,7 @@
   <style name="poly_hotspot_style"
          alpha="0"/>
 
-  <events onxmlcomplete="jscall( 
+  <events onxmlcomplete="jscall(
      document.getElementById('pano').style.display = 'block';
      document.getElementById('loading_kr').style.display='none';
       );" />
@@ -260,8 +260,7 @@
             height="100%"
             keep="true"
             align="center"
-            iconurl="animated_icon/27-loading.json"
-            onloaded="load_lottie('lottie_loadingtext', get(iconurl);"
+            onloaded="load_lottie('lottie_loadingtext', 'artexb/plugins/animated_icon/27-loading.json');"
             />
 
     </layer>
