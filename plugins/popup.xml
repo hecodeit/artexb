@@ -11,7 +11,7 @@
 
     if(layer["lagnuage_text"].html === 'EN',
     popup('html', get(data[%3].content), -5, get(popY), 160, get(popH), 0x000000, '0,0,0,0.7', true, "center", true, true, false, 6, get(data[%3].mobilesize), get(data[%3].desktopsize) ),
-    popup('html', get(data[%4].content), -5, get(popY), 160, get(popH), 0x000000, '0,0,0,0.7', true, "center", true, true, false 6, get(data[%4].mobilesize), get(data[%4].desktopsize) ) );
+    popup('html', get(data[%4].content), -5, get(popY), 160, get(popH), 0x000000, '0,0,0,0.7', true, "center", true, true, false, 6, get(data[%4].mobilesize), get(data[%4].desktopsize) ) );
   </action>
 
   <action name="open_html_box">
