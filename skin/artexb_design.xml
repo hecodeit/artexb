@@ -33,12 +33,26 @@
      document.getElementById('loading_kr').style.display='none';
       );" />
 
+  <action name="skin_hotspotstyle_click" scope="local">
+    if(isvalue(caller.linkedscene),
+      copy(hs_linkedscene, caller.linkedscene);
+      if(caller.linkedscene_lookat, txtsplit(caller.linkedscene_lookat, ',', hs_lookat_h, hs_lookat_v, hs_lookat_fov); );
+      set(caller.enabled, false);
+      skin_hidetooltips();
+      tween(caller.depth|caller.alpha, 4000|0.0, 0.5, default,
+        skin_loadscene(get(hs_linkedscene), get(skin_settings.loadscene_blend));
+        if(hs_lookat_h !== null, skin_lookat(get(hs_lookat_h), get(hs_lookat_v), get(hs_lookat_fov)); );
+        skin_updatescroll();
+      );
+    );
+  </action>
+
   <!-- 简介 begin-->
-  <data name="popup_intro_en" mobilesize="32px 10px 32px 10px" desktopsize="64px 20% 32px 20%">
+  <data name="popup_intro_en" mobilesize="32px 20px 32px 20px" desktopsize="64px 20% 32px 20%">
     <![CDATA[
-      <div>
+      <div style="color:black;">
         <div style="font-size:21px;font-weight:bold;">Lorem Ipsum</div>
-        <hr style="border:0;border-top:1px solid white;">
+        <hr style="border:0;border-top:1px solid black;">
         <ul>
           <li>Vivamus sodales risus sit amet risus convallis euismod.</li>
           <li>Donec risus felis, sagittis congue dictum quis, ornare nec massa. Integer dignissim, eros in viverra varius, augue quam lobortis elit, id pellentesque lacus eros vitae ex.</li>
@@ -49,11 +63,11 @@
     ]]>
   </data>
 
-  <data name="popup_intro_cn" mobilesize="32px 10px 32px 10px" desktopsize="64px 20% 32px 20%">
+  <data name="popup_intro_cn" mobilesize="32px 20px 32px 20px" desktopsize="64px 20% 32px 20%">
     <![CDATA[
-      <div>
+      <div style="color:black;">
         <div style="font-size:21px;font-weight:bold;">幸村西羊身尺朱苗</div>
-        <hr style="border:0;border-top:1px solid white;">
+        <hr style="border:0;border-top:1px solid black;">
         <ul>
           <li>像人工白植白。太吹色村呀巾四許春們良</li>
           <li>禾發到羽道，呢斗欠院屋頁，山步北：冰校回早鴨，再波尤那往哪壯抓福固右科地買兌半男壯福立乞</li>

@@ -1,0 +1,125 @@
+<krpano>
+
+<events
+	keep="true"
+	name="floor_events"
+	onnewscene="floor_newscene()"
+	skin_showthumbs_opened="skin_showthumbs_opened()"
+	skin_showthumbs_closed="skin_showthumbs_closed()"
+/>
+
+<style
+	name="floor_btn"
+	url="floor.png"
+	align="rightbottom"
+	alpha="0.1"
+	bgcapture="true"
+	enabled="true"
+	handcursor="true"
+	visible="true"
+	bgalpha="1.0"
+	keep="true"
+	y="100"
+	x="18"
+	scale="0.5"
+/>
+
+
+<button
+	y="100"
+	scale="0.5"
+/>
+
+<layer name="btn1" style="floor_btn" crop="0|420|70|70" zorder="7"  onloaded="tween(alpha,1);" onclick="ExpandButtons(7);"></layer>
+<layer name="btn2" style="floor_btn" crop="0|350|70|70" zorder="6" start="3" end="10" onclick="floor_loadscene(scene_3);ExpandButtons(7);"></layer>
+<layer name="btn3" style="floor_btn" crop="0|0|70|70"   zorder="5" start="11" end="19" onclick="floor_loadscene(scene_11);ExpandButtons(7);"></layer>
+<layer name="btn4" style="floor_btn" crop="0|210|70|70" visible="false" zorder="4" start="10" end="14" onclick="floor_loadscene(scene_12);ExpandButtons(7);" ></layer>
+<layer name="btn5" style="floor_btn" crop="0|140|70|70" visible="false" zorder="3" start="15" end="16" onclick="floor_loadscene(scene_13);ExpandButtons(7);"></layer>
+<layer name="btn6" style="floor_btn" crop="0|70|70|70"  visible="false" zorder="2" start="17" end="21" onclick="floor_loadscene(scene_14);ExpandButtons(7);" ></layer>
+<layer name="btn7" style="floor_btn" crop="0|0|70|70"   visible="false" zorder="1" start="22" end="27" onclick="floor_loadscene(scene_15);ExpandButtons(7);" ></layer>
+
+<action name="floor_loadscene">
+	loadscene(%1);
+	layer[skin_thumbs].scrolltocenter(get(scene[%1].thumbx), get(scene[%1].thumby));
+</action>
+
+<action name="skin_showthumbs_opened">
+	trace('opend');
+	for(set(i,1), i LE 7, inc(i),
+		set(_bn, calc:'btn' + i);
+		tween(layer[get(_bn)].x, -50,0.4);
+	);
+</action>
+<action name="skin_showthumbs_closed">
+<!-- 	switch_floor();
+ -->	trace('closed');
+</action>
+
+<action name="switch_floor">
+	if(floorstatus == open,
+		set(floorstatus, closed);
+		for(set(i,1), i LE 7, inc(i),
+			set(_bn, calc:'btn' + i);
+			tween(layer[get(_bn)].x, -50,0.4);
+		);
+		,
+		for(set(i,1), i LE 7, inc(i),
+			set(_bn, calc:'btn' + i);
+			tween(layer[get(_bn)].x, 10,0.4);
+		);
+		set(floorstatus, open);
+	)
+</action>
+
+<action name="floor_newscene">
+	set(floorstatus, open);
+
+	set(layer[btn2].alpha, 0.5);
+	set(layer[btn3].alpha, 0.5);
+	set(layer[btn4].alpha, 0.5);
+	set(layer[btn5].alpha, 0.5);
+	set(layer[btn6].alpha, 0.5);
+	set(layer[btn7].alpha, 0.5);
+
+	txtsplit(xml.scene,'_', arr);
+	set(scene_index, get(arr[calc(arr.count-1)].value));
+	if(scene_index GE layer[btn2].start AND scene_index LE layer[btn2].end,
+		set(layer[btn2].alpha, 1);
+	);
+	if(scene_index GE layer[btn3].start AND scene_index LE layer[btn3].end,
+		set(layer[btn3].alpha, 1);
+	);
+	if(scene_index GE layer[btn4].start AND scene_index LE layer[btn4].end,
+		set(layer[btn4].alpha, 1);
+	);
+	if(scene_index GE layer[btn5].start AND scene_index LE layer[btn5].end,
+		set(layer[btn5].alpha, 1);
+	);
+	if(scene_index GE layer[btn6].start AND scene_index LE layer[btn6].end,
+		set(layer[btn6].alpha, 1);
+	);
+	if(scene_index GE layer[btn7].start AND scene_index LE layer[btn7].end,
+		set(layer[btn7].alpha, 1);
+	);
+</action>
+
+<action name="ExpandButtons">
+	if(butts == open,
+		set(butts, closed);
+		for(set(i,2), i LE %1, inc(i),
+			set(_bn, calc:'btn' + i);
+			tween(layer[get(_bn)].y, get(button.y),0.4);
+			//tween(layer[get(_bn)].alpha, 0, 0.4);
+		);
+	,
+		for(set(i,2), i LE %1, inc(i),
+			set(_bn, calc:'btn' + i);
+			set(_bny, calc:(i-1) * (layer[get(_bn)].height * button.scale) + ((i-1)*10) + 100);
+			tween(layer[get(_bn)].y, get(_bny),0.7,easeoutbounce);
+			//tween(layer[get(_bn)].alpha, 1, 0.7);
+		);
+		set(butts, open);
+	);
+</action>
+
+</krpano>

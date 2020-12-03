@@ -2,22 +2,22 @@
   <include url="%VIEWER%/plugins/iphone_fullscreen_swipe.xml" />
 
   <action name="open_artist_intro">
-    lookto(%1,calc(%2+10),117);
-    spheretoscreen(hotspot[spot_1].ath, hotspot[spot_1].atv, x, y);
+    lookto(%2,calc(%3+10),117);
+    spheretoscreen(hotspot[%1].ath, hotspot[%1].atv, x, y);
 
     <!-- 设置弹出框高度 -->
-    set(popH, 120);
+    set(popH, 140);
     set(popY, calc(get(y)-stageheight/2+popH/2+30));
 
     if(layer["lagnuage_text"].html === 'EN',
-    popup('html', get(data[%3].content), -5, get(popY), 160, get(popH), 0x000000, '0,0,0,0.7', true, "center", true, true, false, 6, get(data[%3].mobilesize), get(data[%3].desktopsize) ),
-    popup('html', get(data[%4].content), -5, get(popY), 160, get(popH), 0x000000, '0,0,0,0.7', true, "center", true, true, false, 6, get(data[%4].mobilesize), get(data[%4].desktopsize) ) );
-  </action>
+    popup('html', get(data[%4].content), -5, get(popY), 180, get(popH), 0xFFFFFF, '255,255,255,0.7', true, "center", true, true, false, 6, get(data[%4].mobilesize), get(data[%4].desktopsize) ),
+    popup('html', get(data[%5].content), -5, get(popY), 180, get(popH), 0xFFFFFF, '255,255,255,0.7', true, "center", true, true, false, 6, get(data[%5].mobilesize), get(data[%5].desktopsize) ) );
+	</action>
 
   <action name="open_html_box">
     if(layer["lagnuage_text"].html === 'EN',
-    popup('html', get(data[%1].content), 0, 0, '100%', '100%', 0x000000, '0,0,0,0.9', true, 'center', false, false, true, 0, get(data[%1].mobilesize), get(data[%1].desktopsize) ),
-    popup('html', get(data[%2].content), 0, 0, '100%', '100%', 0x000000, '0,0,0,0.9', true, 'center', false, false, true, 0, get(data[%2].mobilesize), get(data[%2].desktopsize) ) );
+    popup('html', get(data[%1].content), 0, 0, '90%', '90%', 0xFFFFFF, '255,255,255,0.9', true, 'center', false, true, true, 6, get(data[%1].mobilesize), get(data[%1].desktopsize) ),
+    popup('html', get(data[%2].content), 0, 0, '90%', '90%', 0xFFFFFF, '255,255,255,0.9', true, 'center', false, true, true, 6, get(data[%2].mobilesize), get(data[%2].desktopsize) ) );
   </action>
 
   <action name="open_gallery">
